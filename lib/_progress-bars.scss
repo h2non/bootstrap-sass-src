@@ -86,32 +86,36 @@
 
 // Danger (red)
 .progress-danger .bar {
-  @include gradient-vertical(#ee5f5b, #c43c35);
+  @include gradient-vertical($btnDangerBackground, lighten($btnDangerBackgroundHighlight, 1.7%));
+  //@debug lighten($btnDangerBackgroundHighlight, 1.7%) + " = #c43c35";
 }
 .progress-danger.progress-striped .bar {
-  @include gradient-striped(#ee5f5b);
+  @include gradient-striped($btnDangerBackground);
 }
 
 // Success (green)
 .progress-success .bar {
-  @include gradient-vertical(#62c462, #57a957);
+  @include gradient-vertical($btnSuccessBackground, lighten($btnSuccessBackgroundHighlight, 2.7%));
+  //@debug lighten($btnSuccessBackgroundHighlight, 2.7%) + " = #57a957";
 }
 .progress-success.progress-striped .bar {
-  @include gradient-striped(#62c462);
+  @include gradient-striped($btnSuccessBackground);
 }
 
 // Info (teal)
 .progress-info .bar {
-  @include gradient-vertical(#5bc0de, #339bb9);
+  @include gradient-vertical($btnInfoBackground, lighten($btnInfoBackgroundHighlight, 3.6%));
+  //@debug lighten($btnInfoBackgroundHighlight, 3.6%) + " = #339bb9";
 }
 .progress-info.progress-striped .bar {
-  @include gradient-striped(#5bc0de);
+  @include gradient-striped($btnInfoBackground);
 }
 
 // Warning (orange)
 .progress-warning .bar {
-  @include gradient-vertical(lighten($orange, 15%), $orange);
+  @include gradient-vertical($btnWarningBackground, $btnWarningBackgroundHighlight);
+  //@debug lighten($btnInfoBackgroundHighlight, 3.6%) + " = #{$orange}";
 }
 .progress-warning.progress-striped .bar {
-  @include gradient-striped(lighten($orange, 15%));
+  @include gradient-striped($btnWarningBackground);
 }

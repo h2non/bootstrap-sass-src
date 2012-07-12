@@ -1,3 +1,4 @@
+@import "compass/css3";
 /*!
  * Bootstrap v2.0.4
  *
@@ -27,7 +28,8 @@
 @import "tables";
 
 // Components: common
-@import "sprites";
+//@import "sprites";
+@import "fontawesome";
 @import "dropdowns";
 @import "wells";
 @import "component-animations";

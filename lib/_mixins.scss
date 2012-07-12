@@ -206,7 +206,7 @@
 }
 
 // Drop shadows
-@mixin box-shadow($shadow) {
+@mixin tb-box-shadow($shadow) {
   -webkit-box-shadow: $shadow;
      -moz-box-shadow: $shadow;
           box-shadow: $shadow;
