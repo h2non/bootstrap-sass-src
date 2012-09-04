@@ -116,16 +116,16 @@ input[type="color"],
 .uneditable-input {
   background-color: $inputBackground;
   border: 1px solid $inputBorder;
-  @include border-radius($inputBorderRadius);
-  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
-  @include transition(#{border linear .2s, box-shadow linear .2s});
+  @include tb_border-radius($inputBorderRadius);
+  @include tb_box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  @include tb_transition(#{border linear .2s, box-shadow linear .2s});
 
   // Focus state
   &:focus {
     border-color: rgba(82,168,236,.8);
     outline: 0;
     outline: thin dotted \9; /* IE6-9 */
-    @include box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)});
+    @include tb_box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)});
   }
 }
 
@@ -309,11 +309,14 @@ input[type="checkbox"][readonly] {
 input:focus:required:invalid,
 textarea:focus:required:invalid,
 select:focus:required:invalid {
-  color: #b94a48;
-  border-color: #ee5f5b;
-  &:focus {
-    border-color: darken(#ee5f5b, 10%);
-    @include box-shadow(0 0 6px lighten(#ee5f5b, 20%));
+  &.ng-dirty {
+    // thanks angular
+    color: #b94a48;
+    border-color: #ee5f5b;
+    &:focus {
+      border-color: darken(#ee5f5b, 10%);
+      @include tb_box-shadow(0 0 6px lighten(#ee5f5b, 20%));
+    }
   }
 }
 
@@ -328,7 +331,7 @@ select:focus:required:invalid {
   margin-bottom: $baseLineHeight;
   background-color: $formActionsBackground;
   border-top: 1px solid #e5e5e5;
-  @include clearfix(); // Adding clearfix to allow for .pull-right button containers
+  @include tb_clearfix(); // Adding clearfix to allow for .pull-right button containers
 }
 
 // For text that needs to appear as an input but should not be an input
@@ -338,7 +341,7 @@ select:focus:required:invalid {
   cursor: not-allowed;
   background-color: $inputBackground;
   border-color: #eee;
-  @include box-shadow(inset 0 1px 2px rgba(0,0,0,.025));
+  @include tb_box-shadow(inset 0 1px 2px rgba(0,0,0,.025));
 }
 
 // Placeholder text gets special styles; can't be bundled together though for some reason
@@ -382,7 +385,7 @@ select:focus:required:invalid {
     margin-bottom: 0; // prevent bottom margin from screwing up alignment in stacked forms
     *margin-left: 0;
     vertical-align: middle;
-    @include border-radius(0 $inputBorderRadius $inputBorderRadius 0);
+    @include tb_border-radius(0 $inputBorderRadius $inputBorderRadius 0);
     // Make input on top when focused so blue border and shadow always show
     &:focus {
       z-index: 2;
@@ -408,7 +411,7 @@ select:focus:required:invalid {
   .add-on,
   .btn {
     margin-left: -1px;
-    @include border-radius(0);
+    @include tb_border-radius(0);
   }
   .active {
     background-color: lighten($green, 30);
@@ -422,14 +425,14 @@ select:focus:required:invalid {
   }
   .add-on:first-child,
   .btn:first-child {
-    @include border-radius($inputBorderRadius 0 0 $inputBorderRadius);
+    @include tb_border-radius($inputBorderRadius 0 0 $inputBorderRadius);
   }
 }
 .input-append {
   input,
   select,
   .uneditable-input {
-    @include border-radius($inputBorderRadius 0 0 $inputBorderRadius);
+    @include tb_border-radius($inputBorderRadius 0 0 $inputBorderRadius);
   }
   .uneditable-input {
     border-right-color: #ccc;
@@ -437,7 +440,7 @@ select:focus:required:invalid {
   }
   .add-on:last-child,
   .btn:last-child {
-    @include border-radius(0 $inputBorderRadius $inputBorderRadius 0);
+    @include tb_border-radius(0 $inputBorderRadius $inputBorderRadius 0);
   }
 }
 // Remove all border-radius for inputs with both prepend and append
@@ -445,17 +448,17 @@ select:focus:required:invalid {
   input,
   select,
   .uneditable-input {
-    @include border-radius(0);
+    @include tb_border-radius(0);
   }
   .add-on:first-child,
   .btn:first-child {
     margin-right: -1px;
-    @include border-radius($inputBorderRadius 0 0 $inputBorderRadius);
+    @include tb_border-radius($inputBorderRadius 0 0 $inputBorderRadius);
   }
   .add-on:last-child,
   .btn:last-child {
     margin-left: -1px;
-    @include border-radius(0 $inputBorderRadius $inputBorderRadius 0);
+    @include tb_border-radius(0 $inputBorderRadius $inputBorderRadius 0);
   }
 }
 
@@ -470,7 +473,7 @@ select:focus:required:invalid {
   padding-left: 14px;
   padding-left: 4px \9; /* IE7-8 doesn't have border-radius, so don't indent the padding */
   margin-bottom: 0; // remove the default margin on all inputs
-  @include border-radius(14px);
+  @include tb_border-radius(14px);
 }
 
 
@@ -549,7 +552,7 @@ legend + .control-group {
   // Increase spacing between groups
   .control-group {
     margin-bottom: $baseLineHeight;
-    @include clearfix();
+    @include tb_clearfix();
   }
   // Float the labels left
   .control-label {

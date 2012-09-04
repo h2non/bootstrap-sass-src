@@ -2,10 +2,10 @@
 // --------------------
 
 .fade {
-  @include opacity(0);
-  @include transition(opacity .15s linear);
+  @include tb_opacity(0);
+  @include tb_transition(opacity .15s linear);
   &.in {
-    @include opacity(100);
+    @include tb_opacity(100);
   }
 }
 
@@ -13,7 +13,7 @@
   position: relative;
   height: 0;
   overflow: hidden;
-  @include transition(height .35s ease);
+  @include tb_transition(height .35s ease);
   &.in {
     height: auto;
   }

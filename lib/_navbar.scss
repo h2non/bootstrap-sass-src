@@ -20,8 +20,8 @@
   padding-left:  20px;
   padding-right: 20px;
   @include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
-  @include border-radius(4px);
-  @include box-shadow(#{0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1)});
+  @include tb_border-radius(4px);
+  @include tb_box-shadow(#{0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1)});
 }
 
 // Set width to auto for default container
@@ -81,7 +81,7 @@
 // Navbar forms
 .navbar-form {
   margin-bottom: 0; // remove default bottom margin
-  @include clearfix();
+  @include tb_clearfix();
   input,
   select,
   .radio,
@@ -120,8 +120,8 @@
     color: $white;
     background-color: $navbarSearchBackground;
     border: 1px solid $navbarSearchBorder;
-    @include box-shadow(#{inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15)});
-    @include transition(none);
+    @include tb_box-shadow(#{inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15)});
+    @include tb_transition(none);
 
     @include placeholder($navbarSearchPlaceholderColor);
 
@@ -133,7 +133,7 @@
       text-shadow: 0 1px 0 $white;
       background-color: $navbarSearchBackgroundFocus;
       border: 0;
-      @include box-shadow(0 0 3px rgba(0,0,0,.15));
+      @include tb_box-shadow(0 0 3px rgba(0,0,0,.15));
       outline: 0;
     }
   }
@@ -157,7 +157,7 @@
 .navbar-fixed-bottom .navbar-inner {
   padding-left:  0;
   padding-right: 0;
-  @include border-radius(0);
+  @include tb_border-radius(0);
 }
 
 .navbar-fixed-top .container,
@@ -261,15 +261,15 @@
   margin-left: 5px;
   margin-right: 5px;
   @include buttonBackground($navbarBackgroundHighlight, $navbarBackground);
-  @include box-shadow(#{inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075)});
+  @include tb_box-shadow(#{inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075)});
 }
 .navbar .btn-navbar .icon-bar {
   display: block;
   width: 18px;
   height: 2px;
   background-color: #f5f5f5;
-  @include border-radius(1px);
-  @include box-shadow(0 1px 0 rgba(0,0,0,.25));
+  @include tb_border-radius(1px);
+  @include tb_box-shadow(0 1px 0 rgba(0,0,0,.25));
 }
 .btn-navbar .icon-bar + .icon-bar {
   margin-top: 3px;
@@ -326,7 +326,7 @@
   border-bottom-color: $white;
 }
 .navbar .nav li.dropdown.active .caret {
-  @include opacity(100);
+  @include tb_opacity(100);
 }
 
 // Remove background color from open dropdown

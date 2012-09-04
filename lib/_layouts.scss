@@ -13,5 +13,5 @@
 .container-fluid {
   padding-right: $gridGutterWidth;
   padding-left: $gridGutterWidth;
-  @include clearfix();
+  @include tb_clearfix();
 }
