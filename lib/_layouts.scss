@@ -5,7 +5,7 @@
 
 // Container (centered, fixed-width layouts)
 .container {
-  @include container-fixed();
+  @include tb_container-fixed();
 }
 
 // Fluid layouts (left aligned, with sidebar, min- & max-width content)

@@ -54,8 +54,8 @@
   border: 1px solid $dropdownBorder;
   *border-right-width: 2px;
   *border-bottom-width: 2px;
-  @include border-radius(6px);
-  @include box-shadow(0 5px 10px rgba(0,0,0,.2));
+  @include tb_border-radius(6px);
+  @include tb_box-shadow(0 5px 10px rgba(0,0,0,.2));
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
@@ -68,7 +68,7 @@
 
   // Dividers (basically an hr) within the dropdown
   .divider {
-    @include nav-divider($dropdownDividerTop, $dropdownDividerBottom);
+    @include tb_nav-divider($dropdownDividerTop, $dropdownDividerBottom);
   }
 
   // Links within the dropdown menu
@@ -91,7 +91,8 @@
 .dropdown-submenu:focus > a {
   text-decoration: none;
   color: $dropdownLinkColorHover;
-  @include gradient-vertical($dropdownLinkBackgroundHover, darken($dropdownLinkBackgroundHover, 5%));
+  background-color: $dropdownLinkBackgroundHover;
+  @include tb_gradient-vertical($dropdownLinkBackgroundHover, darken($dropdownLinkBackgroundHover, 5%));
 }
 
 // Active state
@@ -102,7 +103,8 @@
   color: $dropdownLinkColorActive;
   text-decoration: none;
   outline: 0;
-  @include gradient-vertical($dropdownLinkBackgroundActive, darken($dropdownLinkBackgroundActive, 5%));
+  background-color: $dropdownLinkBackgroundActive;
+  @include tb_gradient-vertical($dropdownLinkBackgroundActive, darken($dropdownLinkBackgroundActive, 5%));
 }
 
 // Disabled state
@@ -119,7 +121,7 @@
   text-decoration: none;
   background-color: transparent;
   background-image: none; // Remove CSS gradient
-  @include reset-filter();
+  @include tb_reset-filter();
   cursor: default;
 }
 
@@ -173,7 +175,7 @@
   left: 100%;
   margin-top: -6px;
   margin-left: -1px;
-  @include border-radius(0 6px 6px 6px);
+  @include tb_border-radius(0 6px 6px 6px);
 }
 .dropdown-submenu:hover > .dropdown-menu {
   display: block;
@@ -185,7 +187,7 @@
   bottom: 0;
   margin-top: 0;
   margin-bottom: -2px;
-  @include border-radius(5px 5px 5px 0);
+  @include tb_border-radius(5px 5px 5px 0);
 }
 
 // Caret to indicate there is a submenu
@@ -216,7 +218,7 @@
   > .dropdown-menu {
     left: -100%;
     margin-left: 10px;
-    @include border-radius(6px 0 6px 6px);
+    @include tb_border-radius(6px 0 6px 6px);
   }
 }
 
@@ -233,5 +235,5 @@
 .typeahead {
   z-index: 1051;
   margin-top: 2px; // give it some space to breathe
-  @include border-radius($baseBorderRadius);
+  @include tb_border-radius($baseBorderRadius);
 }

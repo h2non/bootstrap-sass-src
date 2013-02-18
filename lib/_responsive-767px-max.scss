@@ -64,7 +64,7 @@
     display: block;
     width: 100%;
     margin-left: 0;
-    @include box-sizing(border-box);
+    @include tb_box-sizing(border-box);
   }
   .span12,
   .row-fluid .span12 {
@@ -85,7 +85,7 @@
   select[class*="span"],
   textarea[class*="span"],
   .uneditable-input {
-    @include input-block-level();
+    @include tb_input-block-level();
   }
   // But don't let it screw up prepend/append inputs
   .input-prepend input,

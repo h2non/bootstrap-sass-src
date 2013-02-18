@@ -22,13 +22,13 @@
   min-height: $navbarHeight;
   padding-left:  20px;
   padding-right: 20px;
-  @include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
+  @include tb_gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
   border: 1px solid $navbarBorder;
-  @include border-radius($baseBorderRadius);
-  @include box-shadow(0 1px 4px rgba(0,0,0,.065));
+  @include tb_border-radius($baseBorderRadius);
+  @include tb_box-shadow(0 1px 4px rgba(0,0,0,.065));
 
   // Prevent floats from breaking the navbar
-  @include clearfix();
+  @include tb_clearfix();
 }
 
 // Set width to auto for default container
@@ -93,7 +93,7 @@
 // -------------------------
 .navbar .btn,
 .navbar .btn-group {
-  @include navbarVerticalAlign(30px); // Vertically center in navbar
+  @include tb_navbarVerticalAlign(30px); // Vertically center in navbar
 }
 .navbar .btn-group .btn,
 .navbar .input-prepend .btn,
@@ -107,12 +107,12 @@
 // -------------------------
 .navbar-form {
   margin-bottom: 0; // remove default bottom margin
-  @include clearfix();
+  @include tb_clearfix();
   input,
   select,
   .radio,
   .checkbox {
-    @include navbarVerticalAlign(30px); // Vertically center in navbar
+    @include tb_navbarVerticalAlign(30px); // Vertically center in navbar
   }
   input,
   select,
@@ -140,13 +140,13 @@
 .navbar-search {
   position: relative;
   float: left;
-  @include navbarVerticalAlign(30px); // Vertically center in navbar
+  @include tb_navbarVerticalAlign(30px); // Vertically center in navbar
   margin-bottom: 0;
   .search-query {
     margin-bottom: 0;
     padding: 4px 14px;
-    @include font-sans-serif(13px, normal, 1);
-    @include border-radius(15px); // redeclare because of specificity of the type attribute
+    @include tb_font-sans-serif(13px, normal, 1);
+    @include tb_border-radius(15px); // redeclare because of specificity of the type attribute
   }
 }
 
@@ -159,7 +159,7 @@
   position: static;
   margin-bottom: 0; // remove 18px margin for default navbar
   .navbar-inner {
-    @include border-radius(0);
+    @include tb_border-radius(0);
   }
 }
 
@@ -188,7 +188,7 @@
 .navbar-fixed-bottom .navbar-inner {
   padding-left:  0;
   padding-right: 0;
-  @include border-radius(0);
+  @include tb_border-radius(0);
 }
 
 // Reset container width
@@ -196,7 +196,7 @@
 .navbar-static-top .container,
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
-  @include grid-core-span($gridColumns, $gridColumnWidth, $gridGutterWidth);
+  @include tb_grid-core-span($gridColumns, $gridColumnWidth, $gridGutterWidth);
 }
 
 // Fixed to top
@@ -206,7 +206,7 @@
 .navbar-fixed-top,
 .navbar-static-top {
   .navbar-inner {
-    @include box-shadow(0 1px 10px rgba(0,0,0,.1));
+    @include tb_box-shadow(0 1px 10px rgba(0,0,0,.1));
   }
 }
 
@@ -214,7 +214,7 @@
 .navbar-fixed-bottom {
   bottom: 0;
   .navbar-inner {
-    @include box-shadow(0 -1px 10px rgba(0,0,0,.1));
+    @include tb_box-shadow(0 -1px 10px rgba(0,0,0,.1));
   }
 }
 
@@ -266,7 +266,7 @@
   color: $navbarLinkColorActive;
   text-decoration: none;
   background-color: $navbarLinkBackgroundActive;
-  @include box-shadow(inset 0 3px 8px rgba(0,0,0,.125));
+  @include tb_box-shadow(inset 0 3px 8px rgba(0,0,0,.125));
 }
 
 // Navbar button for toggling navbar items in responsive layouts
@@ -277,16 +277,16 @@
   padding: 7px 10px;
   margin-left: 5px;
   margin-right: 5px;
-  @include buttonBackground(darken($navbarBackgroundHighlight, 5%), darken($navbarBackground, 5%));
-  @include box-shadow(inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075));
+  @include tb_buttonBackground(darken($navbarBackgroundHighlight, 5%), darken($navbarBackground, 5%));
+  @include tb_box-shadow(#{inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075)});
 }
 .navbar .btn-navbar .icon-bar {
   display: block;
   width: 18px;
   height: 2px;
   background-color: #f5f5f5;
-  @include border-radius(1px);
-  @include box-shadow(0 1px 0 rgba(0,0,0,.25));
+  @include tb_border-radius(1px);
+  @include tb_box-shadow(0 1px 0 rgba(0,0,0,.25));
 }
 .btn-navbar .icon-bar + .icon-bar {
   margin-top: 3px;
@@ -381,7 +381,7 @@
     right: 100%;
     margin-left: 0;
     margin-right: -1px;
-    @include border-radius(6px 0 6px 6px);
+    @include tb_border-radius(6px 0 6px 6px);
   }
 }
 
@@ -392,7 +392,7 @@
 .navbar-inverse {
 
   .navbar-inner {
-    @include gradient-vertical($navbarInverseBackgroundHighlight, $navbarInverseBackground);
+    @include tb_gradient-vertical($navbarInverseBackgroundHighlight, $navbarInverseBackground);
     border-color: $navbarInverseBorder;
   }
 
@@ -471,9 +471,9 @@
       color: $white;
       background-color: $navbarInverseSearchBackground;
       border-color: $navbarInverseSearchBorder;
-      @include box-shadow(inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15));
-      @include transition(none);
-      @include placeholder($navbarInverseSearchPlaceholderColor);
+      @include tb_box-shadow(#{inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.15)});
+      @include tb_transition(none);
+      @include tb_placeholder($navbarInverseSearchPlaceholderColor);
 
       // Focus states (we use .focused since IE7-8 and down doesn't support :focus)
       &:focus,
@@ -483,7 +483,7 @@
         text-shadow: 0 1px 0 $white;
         background-color: $navbarInverseSearchBackgroundFocus;
         border: 0;
-        @include box-shadow(0 0 3px rgba(0,0,0,.15));
+        @include tb_box-shadow(0 0 3px rgba(0,0,0,.15));
         outline: 0;
       }
     }
@@ -491,7 +491,7 @@
 
   // Navbar collapse button
   .btn-navbar {
-    @include buttonBackground(darken($navbarInverseBackgroundHighlight, 5%), darken($navbarInverseBackground, 5%));
+    @include tb_buttonBackground(darken($navbarInverseBackgroundHighlight, 5%), darken($navbarInverseBackground, 5%));
   }
 
 }

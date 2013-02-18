@@ -130,7 +130,7 @@ ol.inline {
   list-style: none;
   > li {
     display: inline-block;
-    @include ie7-inline-block();
+    @include tb_ie7-inline-block();
     padding-left: 5px;
     padding-right: 5px;
   }
@@ -152,13 +152,13 @@ dd {
 }
 // Horizontal layout (like forms)
 .dl-horizontal {
-  @include clearfix(); // Ensure dl clears floats if empty dd elements present
+  @include tb_clearfix(); // Ensure dl clears floats if empty dd elements present
   dt {
     float: left;
     width: $horizontalComponentOffset - 20;
     clear: left;
     text-align: right;
-    @include text-overflow();
+    @include tb_text-overflow();
   }
   dd {
     margin-left: $horizontalComponentOffset;
