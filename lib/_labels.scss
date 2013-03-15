@@ -31,8 +31,8 @@ a.label { // TODO: don't be so specific limiting this to an <a> tag
 // Only give background-color difference to links (and to simplify, we don't qualifty with `a` but [href] attribute)
 
 // Danger (red)
-.label-important         { background-color: $labelDangerBackground; }
-.label-important[href]   { background-color: darken($labelDangerBackground, 10%); }
+.label-danger            { background-color: $labelDangerBackground; }
+.label-danger[href]      { background-color: darken($labelDangerBackground, 10%); }
 // Warnings (orange)
 .label-warning           { background-color: $labelWarningBackground; }
 .label-warning[href]     { background-color: darken($labelWarningBackground, 10%); }

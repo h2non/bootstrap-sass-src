@@ -61,8 +61,8 @@ a.badge {
 // Only give background-color difference to links (and to simplify, we don't qualifty with `a` but [href] attribute)
 
 // Danger (red)
-.badge-important         { background-color: $labelDangerBackground; }
-.badge-important[href]   { background-color: darken($labelDangerBackground, 10%); }
+.badge-danger            { background-color: $labelDangerBackground; }
+.badge-danger[href]      { background-color: darken($labelDangerBackground, 10%); }
 // Warnings (orange)
 .badge-warning           { background-color: $labelWarningBackground; }
 .badge-warning[href]     { background-color: darken($labelWarningBackground, 10%); }
