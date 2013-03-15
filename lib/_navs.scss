@@ -20,6 +20,8 @@
   position: relative;
   display: block;
   padding: 10px 15px; // TODO: nav item padding should be a var
+  // caret color should match the text color
+  .caret { border-top-color: $linkColor; }
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -70,6 +72,8 @@
   border: 1px solid #ddd; // TODO: tab border colors should be vars
   border-bottom-color: transparent;
   cursor: default;
+  // caret color should match the text color
+  .caret { border-top-color: $gray; }
 }
 
 // Pills
@@ -93,6 +97,8 @@
 .nav-pills > .active > a:focus { // TODO: don't be so specific limiting this to an <a> tag
   color: #fff;
   background-color: $linkColor; // TODO: this bg color should be inherited from global menu styling
+  // caret color should match the text color
+  .caret { border-top-color: #fff; }
 }
 
 // Stacked pills
@@ -138,6 +144,8 @@
   color: #fff;
   background-color: $linkColor;
   border-color: $linkColor;
+  // caret color should match the text color
+  .caret { border-top-color: #fff; }
 }
 
 
@@ -151,6 +159,8 @@
 // Gray out text
 .nav > .disabled > a { // TODO: don't be so specific limiting this to an <a> tag
   color: $grayLight;
+  // caret color should match the text color
+  .caret { border-top-color: $grayLight; }
 }
 // Nuke hover effects
 .nav > .disabled > a:hover,
@@ -159,6 +169,8 @@
   text-decoration: none;
   background-color: transparent;
   cursor: default;
+  // caret color should match the text color
+  .caret { border-top-color: $grayLight; }
 }
 
 // Nav headers (for dropdowns and lists)
