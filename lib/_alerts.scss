@@ -12,7 +12,7 @@
   color: $warningText;
   background-color: $warningBackground;
   border: 1px solid $warningBorder;
-  @include tb_border-radius($baseBorderRadius);
+  border-radius: $baseBorderRadius;
 }
 .alert h4 {
   margin-top: 0;

@@ -56,7 +56,7 @@
   margin-right: 2px;
   line-height: $baseLineHeight;
   border: 1px solid transparent;
-  @include tb_border-radius($baseBorderRadius $baseBorderRadius 0 0);
+  border-radius: $baseBorderRadius $baseBorderRadius 0 0;
   &:hover { // TODO: should this have a :focus as well?
     border-color: $grayLighter $grayLighter #ddd; // TODO: tab border colors should be vars
   }
@@ -81,7 +81,7 @@
 
 // Links rendered as pills
 .nav-pills > li > a { // TODO: don't be so specific limiting this to an <a> tag
-  @include tb_border-radius(5px);
+  border-radius: 5px;
 }
 .nav-pills > li + li > a { // TODO: don't be so specific limiting this to an <a> tag
   margin-left: 2px; // TODO: this pill spacing matches tab spacing, use a var
@@ -126,12 +126,10 @@
   border: 1px solid #e5e5e5; // TODO: all this nav-list appearance stuff should be inherited from global menu styling
 }
 .nav-list > li:first-child > a { // TODO: don't be so specific limiting this to an <a> tag
-  border-top-left-radius: $baseBorderRadius;
-  border-top-right-radius: $baseBorderRadius;
+  @include tb_border-top-radius($baseBorderRadius);
 }
 .nav-list > li:last-child > a { // TODO: don't be so specific limiting this to an <a> tag
-   border-bottom-left-radius: $baseBorderRadius;
-  border-bottom-right-radius: $baseBorderRadius;
+  @include tb_border-bottom-radius($baseBorderRadius);
 }
 .nav-list > .active > a,
 .nav-list > .active > a:hover,

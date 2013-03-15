@@ -14,7 +14,7 @@
   white-space: nowrap;
   text-align: center;
   background-color: $grayLight;
-  @include tb_border-radius(.25em);
+  border-radius: .25em;
 }
 
 // Hover state, but only for links

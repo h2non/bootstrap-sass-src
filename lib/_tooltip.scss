@@ -27,7 +27,7 @@
   text-align: center;
   text-decoration: none;
   background-color: $tooltipBackground;
-  @include tb_border-radius($baseBorderRadius);
+  border-radius: $baseBorderRadius;
 }
 
 // Arrows

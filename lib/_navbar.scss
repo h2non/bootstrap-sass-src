@@ -7,9 +7,9 @@
   position: relative;
   padding: 10px 15px;
   background-color: $navbarBackground;
-  @include tb_border-radius($baseBorderRadius);
+  border-radius: $baseBorderRadius;
   // Prevent floats from breaking the navbar
-  @include tb_clearfix();
+  @include tb_clearfix;
 }
 
 // Navbar nav links
@@ -22,7 +22,7 @@
   }
   .nav > li > a { // TODO: don't be so specific limiting this to an <a> tag
     padding-top: (($navbarHeight - $baseLineHeight) / 2);
-    padding-bottom: (($baseLineHeight - $baseLineHeight) / 2);
+    padding-bottom: (($navbarHeight - $baseLineHeight) / 2);
     color: $navbarLinkColor;
     line-height: 20px;
   }
@@ -69,7 +69,7 @@
   right: 0;
   left: 0;
   z-index: $zindexFixedNavbar;
-  @include tb_border-radius(0);
+  border-radius: 0;
 }
 .navbar-fixed-top    { top: 0; }
 .navbar-fixed-bottom { bottom: 0; }
@@ -282,8 +282,8 @@
   }
   .navbar-brand {
     float: left;
-    padding-top: (($navbarHeight - $baseLineHeight) / 2);
-    padding-bottom: (($navbarHeight - $baseLineHeight) / 2);
+    padding-top: (($navbarHeight - $baseLineHeight) / 2) - 1;
+    padding-bottom: (($navbarHeight - $baseLineHeight) / 2) + 1;
     margin-left: -10px; // TODO: why -10px here? variable?
   }
   .navbar .nav {

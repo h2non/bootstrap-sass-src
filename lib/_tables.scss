@@ -72,7 +72,7 @@ th {
   border: 1px solid $tableBorder;
   border-collapse: separate; // Done so we can round those corners!
   border-left: 0;
-  @include tb_border-radius($baseBorderRadius);
+  border-radius: $baseBorderRadius;
   th,
   td {
     border-left: 1px solid $tableBorder;
@@ -93,13 +93,13 @@ th {
   thead:first-child tr:first-child > th:first-child,
   tbody:first-child tr:first-child > td:first-child,
   tbody:first-child tr:first-child > th:first-child {
-    @include tb_border-top-left-radius($baseBorderRadius);
+    border-top-left-radius: $baseBorderRadius;
   }
   // For last th/td in the first row in the first thead or tbody
   thead:first-child tr:first-child > th:last-child,
   tbody:first-child tr:first-child > td:last-child,
   tbody:first-child tr:first-child > th:last-child {
-    @include tb_border-top-right-radius($baseBorderRadius);
+    border-top-right-radius: $baseBorderRadius;
   }
   // For first th/td (can be either) in the last row in the last thead, tbody, and tfoot
   thead:last-child tr:last-child > th:first-child,
@@ -107,7 +107,7 @@ th {
   tbody:last-child tr:last-child > th:first-child,
   tfoot:last-child tr:last-child > td:first-child,
   tfoot:last-child tr:last-child > th:first-child {
-    @include tb_border-bottom-left-radius($baseBorderRadius);
+    border-bottom-left-radius: $baseBorderRadius;
   }
   // For last th/td (can be either) in the last row in the last thead, tbody, and tfoot
   thead:last-child tr:last-child > th:last-child,
@@ -115,15 +115,15 @@ th {
   tbody:last-child tr:last-child > th:last-child,
   tfoot:last-child tr:last-child > td:last-child,
   tfoot:last-child tr:last-child > th:last-child {
-    @include tb_border-bottom-right-radius($baseBorderRadius);
+    border-bottom-right-radius: $baseBorderRadius;
   }
 
   // Clear border-radius for first and last td in the last row in the last tbody for table with tfoot
   tfoot + tbody:last-child tr:last-child td:first-child {
-    @include tb_border-bottom-left-radius(0);
+    border-bottom-left-radius: 0;
   }
   tfoot + tbody:last-child tr:last-child td:last-child {
-    @include tb_border-bottom-right-radius(0);
+    border-bottom-right-radius: 0;
   }
 
   // Special fixes to round the left border on the first td/th
@@ -131,13 +131,13 @@ th {
   caption + tbody tr:first-child td:first-child,
   colgroup + thead tr:first-child th:first-child,
   colgroup + tbody tr:first-child td:first-child {
-    @include tb_border-top-left-radius($baseBorderRadius);
+    border-top-left-radius: $baseBorderRadius;
   }
   caption + thead tr:first-child th:last-child,
   caption + tbody tr:first-child td:last-child,
   colgroup + thead tr:first-child th:last-child,
   colgroup + tbody tr:first-child td:last-child {
-    @include tb_border-top-right-radius($baseBorderRadius);
+    border-top-right-radius: $baseBorderRadius;
   }
 
 }

@@ -18,7 +18,7 @@
   vertical-align: middle;
   cursor: pointer;
   border: 1px solid $btnBorder; // TODO: variable for border width?
-  @include tb_border-radius($baseBorderRadius); // TODO: be button specific with radius/ padding vars?
+  border-radius: $baseBorderRadius; // TODO: be button specific with radius/ padding vars?
   white-space: nowrap;
 
   &:focus {
@@ -56,21 +56,21 @@
 .btn-large {
   padding: $paddingLarge; // TODO: be button specific with radius/ padding vars?
   font-size: $fontSizeLarge; // TODO: be button specific with radius/ padding vars?
-  @include tb_border-radius($borderRadiusLarge); // TODO: be button specific with radius/ padding vars?
+  border-radius: $borderRadiusLarge; // TODO: be button specific with radius/ padding vars?
 }
 
 // Small
 .btn-small {
   padding: $paddingSmall; // TODO: be button specific with radius/ padding vars?
   font-size: $fontSizeSmall; // TODO: be button specific with radius/ padding vars?
-  @include tb_border-radius($borderRadiusSmall); // TODO: be button specific with radius/ padding vars?
+  border-radius: $borderRadiusSmall; // TODO: be button specific with radius/ padding vars?
 }
 
 // Mini
 .btn-mini {
   padding: $paddingMini; // TODO: be button specific with radius/ padding vars?
   font-size: $fontSizeMini; // TODO: be button specific with radius/ padding vars?
-  @include tb_border-radius($borderRadiusSmall); // TODO: be button specific with radius/ padding vars?
+  border-radius: $borderRadiusSmall; // TODO: be button specific with radius/ padding vars?
 }
 
 
@@ -155,7 +155,7 @@ fieldset[disabled] .btn-link { // TODO: should we only allow fieldset to be disa
   color: $linkColor;
   font-weight: normal;
   cursor: pointer;
-  @include tb_border-radius(0);
+  border-radius: 0;
 }
 .btn-link:hover,
 .btn-link:focus {

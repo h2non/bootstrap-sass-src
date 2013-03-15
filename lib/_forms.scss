@@ -132,7 +132,6 @@ input[type="checkbox"] {
 select,
 input[type="file"] {
   height: $inputHeight; // In IE7, the height of the select element cannot be changed by height, only font-size. TODO: Check if this is still needed when dropping IE7 support
-  *margin-top: 4px; /* For IE7, add top margin to align select with labels */
   line-height: $inputHeight;
 }
 
@@ -236,13 +235,13 @@ input[type="color"] {
   &.input-large {
     padding: $paddingLarge;
     font-size: $fontSizeLarge;
-    @include tb_border-radius($borderRadiusLarge);
+    border-radius: $borderRadiusLarge;
   }
   &.input-small {
     min-height: $inputHeightSmall;
     padding: $paddingSmall;
     font-size: $fontSizeSmall;
-    @include tb_border-radius($borderRadiusSmall);
+    border-radius: $borderRadiusSmall;
   }
 }
 
@@ -344,7 +343,7 @@ select:focus:invalid {
   margin-bottom: $baseLineHeight;
   background-color: $formActionsBackground;
   border-top: 1px solid #e5e5e5; // TOOD: should the form actions top border be a variable?
-  @include tb_clearfix(); // Adding clearfix to allow for .pull-right button containers
+  @include tb_clearfix; // Adding clearfix to allow for .pull-right button containers
 }
 
 
@@ -518,7 +517,7 @@ select:focus:invalid {
     .control-group {
       position: relative;
       margin-bottom: $baseLineHeight;
-      @include tb_clearfix();
+      @include tb_clearfix;
 
       input,
       select,

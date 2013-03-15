@@ -23,7 +23,7 @@
 @media screen and (min-width: 768px) {
   .jumbotron {
     padding: 50px 60px;
-    @include tb_border-radius(6px); // Only round corners at higher resolutions // TODO: should the radius here be a var?
+    border-radius: $borderRadiusLarge; // Only round corners at higher resolutions // TODO: should the radius here be a var?
 
     h1 {
       font-size: 60px;

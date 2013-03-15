@@ -13,7 +13,7 @@
   padding: 4px;
   line-height: $baseLineHeight;
   border: 1px solid #ddd;
-  @include tb_border-radius($baseBorderRadius);
+  border-radius: $baseBorderRadius;
   @include tb_transition(all .2s ease-in-out);
 }
 .thumbnail {

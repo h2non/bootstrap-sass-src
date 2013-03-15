@@ -48,7 +48,7 @@
   background-color: $dropdownBackground;
   border: 1px solid #ccc; // Fallback for IE7-8 TODO: (won't need if the regular border isn't transparent)
   border: 1px solid $dropdownBorder;
-  @include tb_border-radius($baseBorderRadius);
+  border-radius: $baseBorderRadius;
   @include tb_box-shadow(0 6px 12px rgba(0,0,0,.175));
   @include tb_background-clip(padding-box);
 
@@ -161,7 +161,7 @@
   left: 100%;
   margin-top: -6px;
   margin-left: -1px;
-  @include tb_border-top-left-radius(0); // Nuke the closest corner as appropriate
+  border-top-left-radius: 0; // Nuke the closest corner as appropriate
 }
 .dropdown-submenu:hover > .dropdown-menu {
   display: block;
@@ -173,7 +173,7 @@
   bottom: 0;
   margin-top: 0;
   margin-bottom: -2px;
-  @include tb_border-bottom-left-radius(0); // Nuke the closest corner as appropriate
+  border-bottom-left-radius: 0; // Nuke the closest corner as appropriate
 }
 
 // Caret to indicate there is a submenu
@@ -204,7 +204,7 @@
   > .dropdown-menu {
     left: -100%;
     margin-left: 10px;
-    @include tb_border-top-right-radius(0); // Remove the rounded corner here
+    border-top-right-radius: 0; // Remove the rounded corner here
   }
 }
 

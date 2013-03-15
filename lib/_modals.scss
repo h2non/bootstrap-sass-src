@@ -64,7 +64,7 @@
   background-color: #fff;
   border: 1px solid #999; // TODO: appearance of modal should be variables
   border: 1px solid rgba(0,0,0,.2);
-  @include tb_border-radius(6px);
+  border-radius: $borderRadiusLarge;
   @include tb_box-shadow(0 3px 9px rgba(0,0,0,.5));
   @include tb_background-clip(padding-box);
   // Remove focus outline from opened modal
@@ -115,7 +115,7 @@
   padding: ($modalInnerPadding - 1) $modalInnerPadding $modalInnerPadding;
   text-align: right; // right align buttons
   border-top: 1px solid #e5e5e5;
-  @include tb_clearfix(); // clear it in case folks use .pull-* classes on buttons
+  @include tb_clearfix; // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
   .btn + .btn {
