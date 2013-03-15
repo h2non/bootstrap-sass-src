@@ -25,7 +25,7 @@
 }
 
 // Hover state, but only for links
-a.badge {
+a.badge { // TODO: don't be so specific with the <a> tag here
   &:hover,
   &:focus {
     color: #fff;
@@ -48,11 +48,6 @@ a.badge {
 }
 
 // Account for counters in navs
-.nav-list > .active > a > .badge,
-.nav-pills > .active > a > .badge {
-  color: $linkColor;
-  background-color: #fff;
-}
 .nav-pills > li > a > .badge {
   margin-left: 3px;
 }

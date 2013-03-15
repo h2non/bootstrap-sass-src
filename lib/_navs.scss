@@ -97,8 +97,13 @@
 .nav-pills > .active > a:focus { // TODO: don't be so specific limiting this to an <a> tag
   color: #fff;
   background-color: $linkColor; // TODO: this bg color should be inherited from global menu styling
-  // caret color should match the text color
+  // carets and badges should match the text color
   .caret { border-top-color: #fff; }
+  // badges appear with reverse contrast
+  .badge {
+    color: $linkColor;
+    background-color: #fff;
+  }
 }
 
 // Stacked pills
@@ -144,8 +149,13 @@
   color: #fff;
   background-color: $linkColor;
   border-color: $linkColor;
-  // caret color should match the text color
+  // carets and badges should match the text color
   .caret { border-top-color: #fff; }
+  // badges appear with reverse contrast
+  .badge {
+    color: $linkColor;
+    background-color: #fff;
+  }
 }
 
 
