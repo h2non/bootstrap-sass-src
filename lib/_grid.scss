@@ -6,6 +6,10 @@
 // Set the container width, and override it for fixed navbars in media queries
 .container {
   @include tb_container-fixed;
+  @media screen and (max-width: 767px) {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
 }
 
 // Mobile-first defaults
