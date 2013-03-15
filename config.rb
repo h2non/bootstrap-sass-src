@@ -1,11 +1,12 @@
 # Require any additional compass plugins here.
 
 # Set this to the root of your project when deployed:
-http_path = "docs/"
-css_dir = "docs/assets/css"
+http_path = "_gh_pages/"
+css_dir = "_gh_pages/assets/css"
 sass_dir = "lib"
-images_dir = "docs/assets/img"
-javascripts_dir = "docs/assets/js"
+fonts_dir = "_gh_pages/assets/fonts"
+images_dir = "_gh_pages/assets/img"
+javascripts_dir = "_gh_pages/assets/js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
