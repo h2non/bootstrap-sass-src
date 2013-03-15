@@ -3,8 +3,8 @@
 // --------------------------------------------------
 .pagination {
   display: inline-block;
-  margin: $baseLineHeight 0;
-  border-radius: $baseBorderRadius;
+  margin: $lineHeightBase 0;
+  border-radius: $borderRadiusBase;
 }
 .pagination > li {
   display: inline; // Remove list-style and block-level defaults
@@ -13,17 +13,17 @@
 .pagination > li > span { // TODO: don't be so specific limiting this to an <a> tag
   float: left; // Collapse white-space
   padding: 4px 12px;
-  line-height: $baseLineHeight;
+  line-height: $lineHeightBase;
   text-decoration: none;
-  background-color: $paginationBackground;
-  border: 1px solid $paginationBorder;
+  background-color: $paginationBg;
+  border: 1px solid $paginationBdColor;
   border-left-width: 0;
 }
 .pagination > li > a:hover,
 .pagination > li > a:focus,
 .pagination > .active > a,
 .pagination > .active > span { // TODO: don't be so specific limiting this to an <a> tag
-  background-color: $paginationActiveBackground;
+  background-color: $paginationBgActive;
 }
 .pagination > .active > a,
 .pagination > .active > span { // TODO: don't be so specific limiting this to an <a> tag
@@ -41,11 +41,11 @@
 .pagination > li:first-child > a,
 .pagination > li:first-child > span { // TODO: don't be so specific limiting this to an <a> tag
   border-left-width: 1px;
-  @include tb_border-left-radius($baseBorderRadius);
+  @include tb_border-left-radius($borderRadiusBase);
 }
 .pagination > li:last-child > a,
 .pagination > li:last-child > span { // TODO: don't be so specific limiting this to an <a> tag
-  @include tb_border-right-radius($baseBorderRadius);
+  @include tb_border-right-radius($borderRadiusBase);
 }
 
 

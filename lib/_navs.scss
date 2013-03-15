@@ -56,9 +56,9 @@
 // Actual tabs (as links)
 .nav-tabs > li > a { // TODO: don't be so specific limiting this to an <a> tag
   margin-right: 2px;
-  line-height: $baseLineHeight;
+  line-height: $lineHeightBase;
   border: 1px solid transparent;
-  border-radius: $baseBorderRadius $baseBorderRadius 0 0;
+  border-radius: $borderRadiusBase $borderRadiusBase 0 0;
   &:hover { // TODO: should this have a :focus as well?
     border-color: $grayLighter $grayLighter #ddd; // TODO: tab border colors should be vars
   }
@@ -137,10 +137,10 @@
   border: 1px solid #e5e5e5; // TODO: all this nav-list appearance stuff should be inherited from global menu styling
 }
 .nav-list > li:first-child > a { // TODO: don't be so specific limiting this to an <a> tag
-  @include tb_border-top-radius($baseBorderRadius);
+  @include tb_border-top-radius($borderRadiusBase);
 }
 .nav-list > li:last-child > a { // TODO: don't be so specific limiting this to an <a> tag
-  @include tb_border-bottom-radius($baseBorderRadius);
+  @include tb_border-bottom-radius($borderRadiusBase);
 }
 .nav-list > .active > a,
 .nav-list > .active > a:hover,
@@ -191,7 +191,7 @@
   padding: 3px 15px;
   font-size: 11px;
   font-weight: bold;
-  line-height: $baseLineHeight;
+  line-height: $lineHeightBase;
   color: $grayLight;
   text-shadow: 0 1px 0 rgba(255,255,255,.5);
   text-transform: uppercase;

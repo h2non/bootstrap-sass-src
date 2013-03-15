@@ -6,8 +6,8 @@
 .navbar {
   position: relative;
   padding: 10px 15px;
-  background-color: $navbarBackground;
-  border-radius: $baseBorderRadius;
+  background-color: $navbarBg;
+  border-radius: $borderRadiusBase;
   // Prevent floats from breaking the navbar
   @include tb_clearfix;
 }
@@ -21,22 +21,22 @@
     margin-top: 15px;
   }
   .nav > li > a { // TODO: don't be so specific limiting this to an <a> tag
-    padding-top: (($navbarHeight - $baseLineHeight) / 2);
-    padding-bottom: (($navbarHeight - $baseLineHeight) / 2);
+    padding-top: (($navbarHeight - $lineHeightBase) / 2);
+    padding-bottom: (($navbarHeight - $lineHeightBase) / 2);
     color: $navbarLinkColor;
     line-height: 20px;
   }
   .nav > li > a:hover,
   .nav > li > a:focus { // TODO: don't be so specific limiting this to an <a> tag
     color: $navbarLinkColorHover;
-    background-color: $navbarLinkBackgroundHover;
+    background-color: $navbarLinkBgHover;
   }
   // Active state
   .nav > .active { // TODO: don't be so specific limiting this to an <a> tag
     > a {
       &:hover, &:focus {
         color: $navbarLinkColorActive;
-        background-color: $navbarLinkBackgroundActive;
+        background-color: $navbarLinkBgActive;
       }
     }
   }
@@ -45,7 +45,7 @@
     > a {
       &:hover, &:focus {
         color: $navbarLinkColorDisabled;
-        background-color: $navbarLinkBackgroundDisabled;
+        background-color: $navbarLinkBgDisabled;
       }
     }
   }
@@ -89,7 +89,7 @@
   padding: 7px 15px;
   font-size: 18px;
   font-weight: 500;
-  line-height: $baseLineHeight;
+  line-height: $lineHeightBase;
   color: $navbarBrandColor;
   text-align: center;
   &:hover,
@@ -130,7 +130,7 @@
 
 // Dividers in navbar
 .navbar .nav > .divider {
-  @include tb_nav-divider(darken($navbarBackground, 5%), lighten($navbarBackground, 5%));
+  @include tb_nav-divider(darken($navbarBg, 5%), lighten($navbarBg, 5%));
 }
 
 // Navbar form
@@ -163,7 +163,7 @@
   li.dropdown.open > .dropdown-toggle,
   li.dropdown.active > .dropdown-toggle,
   li.dropdown.open.active > .dropdown-toggle {
-    background-color: $navbarLinkBackgroundActive;
+    background-color: $navbarLinkBgActive;
     color: $navbarLinkColorActive;
   }
   li.dropdown > .dropdown-toggle .caret {
@@ -191,7 +191,7 @@
 // --------------------------------------------------
 
 .navbar-inverse {
-  background-color: $navbarInverseBackground;
+  background-color: $navbarInverseBg;
 
   .navbar-brand {
     color: $navbarInverseBrandColor;
@@ -213,19 +213,19 @@
   .nav > li > a:focus,
   .nav > li > a:hover { // TODO: don't be so specific limiting this to an <a> tag
     color: $navbarInverseLinkColorHover;
-    background-color: $navbarInverseLinkBackgroundHover;
+    background-color: $navbarInverseLinkBgHover;
   }
   .nav > .active > a,
   .nav > .active > a:hover,
   .nav > .active > a:focus { // TODO: don't be so specific limiting this to an <a> tag
     color: $navbarInverseLinkColorActive;
-    background-color: $navbarInverseLinkBackgroundActive;
+    background-color: $navbarInverseLinkBgActive;
   }
   .nav > .disabled > a,
   .nav > .disabled > a:hover,
   .nav > .disabled > a:focus { // TODO: don't be so specific limiting this to an <a> tag
     color: $navbarInverseLinkColorDisabled;
-    background-color: $navbarInverseLinkBackgroundDisabled;
+    background-color: $navbarInverseLinkBgDisabled;
   }
 
   // Darken the responsive nav toggle
@@ -242,15 +242,15 @@
 
   // Darken Dividers
   .nav > .divider {
-    background-color: darken($navbarInverseBackground, 5%);
-    border-bottom-color: lighten($navbarInverseBackground, 5%);
+    background-color: darken($navbarInverseBg, 5%);
+    border-bottom-color: lighten($navbarInverseBg, 5%);
   }
 
   // Dropdowns
   .nav li.dropdown.open > .dropdown-toggle,
   .nav li.dropdown.active > .dropdown-toggle,
   .nav li.dropdown.open.active > .dropdown-toggle {
-    background-color: $navbarInverseLinkBackgroundActive;
+    background-color: $navbarInverseLinkBgActive;
     color: $navbarInverseLinkColorActive;
   }
   .nav li.dropdown > a:hover .caret,
@@ -282,8 +282,8 @@
   }
   .navbar-brand {
     float: left;
-    padding-top: (($navbarHeight - $baseLineHeight) / 2) - 1;
-    padding-bottom: (($navbarHeight - $baseLineHeight) / 2) + 1;
+    padding-top: (($navbarHeight - $lineHeightBase) / 2) - 1;
+    padding-bottom: (($navbarHeight - $lineHeightBase) / 2) + 1;
     margin-left: -10px; // TODO: why -10px here? variable?
   }
   .navbar .nav {
@@ -306,11 +306,11 @@
     height: ($navbarHeight * .6);
     margin: ($navbarHeight * .2) 9px;
     border-bottom: 0;
-    border-right: 1px solid lighten($navbarBackground, 5%);
+    border-right: 1px solid lighten($navbarBg, 5%);
   }
   // Since we override the border, we need to specify it again for inverted navbars
   .navbar-inverse .nav > .divider {
-    border-right-color: lighten($navbarInverseBackground, 5%);
+    border-right-color: lighten($navbarInverseBg, 5%);
   }
 
   // Required to make the collapsing navbar work on regular desktops

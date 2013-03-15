@@ -11,9 +11,9 @@
 .thumbnail,
 .img-thumbnail {
   padding: 4px;
-  line-height: $baseLineHeight;
+  line-height: $lineHeightBase;
   border: 1px solid #ddd;
-  border-radius: $baseBorderRadius;
+  border-radius: $borderRadiusBase;
   @include tb_transition(all .2s ease-in-out);
 }
 .thumbnail {

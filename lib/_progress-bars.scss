@@ -44,10 +44,10 @@
 // Outer container
 .progress {
   overflow: hidden;
-  height: $baseLineHeight;
-  margin-bottom: $baseLineHeight;
+  height: $lineHeightBase;
+  margin-bottom: $lineHeightBase;
   background-color: $progressBg;
-  border-radius: $baseBorderRadius;
+  border-radius: $borderRadiusBase;
   @include tb_box-shadow(inset 0 1px 2px rgba(0,0,0,.1));
 }
 
@@ -88,32 +88,32 @@
 
 // Danger (red)
 .progress-bar-danger {
-  background-color: $progressBarDangerBg;
+  background-color: $progressBarBgDanger;
   .progress-striped & {
-    @include tb_gradient-striped($progressBarDangerBg);
+    @include tb_gradient-striped($progressBarBgDanger);
   }
 }
 
 // Success (green)
 .progress-bar-success {
-  background-color: $progressBarSuccessBg;
+  background-color: $progressBarBgSuccess;
   .progress-striped & {
-    @include tb_gradient-striped($progressBarSuccessBg);
+    @include tb_gradient-striped($progressBarBgSuccess);
   }
 }
 
 // Warning (orange)
 .progress-bar-warning {
-  background-color: $progressBarWarningBg;
+  background-color: $progressBarBgWarning;
   .progress-striped & {
-    @include tb_gradient-striped($progressBarWarningBg);
+    @include tb_gradient-striped($progressBarBgWarning);
   }
 }
 
 // Info (teal)
 .progress-bar-info {
-  background-color: $progressBarInfoBg;
+  background-color: $progressBarBgInfo;
   .progress-striped & {
-    @include tb_gradient-striped($progressBarInfoBg);
+    @include tb_gradient-striped($progressBarBgInfo);
   }
 }

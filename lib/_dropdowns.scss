@@ -45,10 +45,10 @@
   padding: 5px 0;
   margin: 2px 0 0; // override default ul
   list-style: none;
-  background-color: $dropdownBackground;
+  background-color: $dropdownBg;
   border: 1px solid #ccc; // Fallback for IE7-8 TODO: (won't need if the regular border isn't transparent)
-  border: 1px solid $dropdownBorder;
-  border-radius: $baseBorderRadius;
+  border: 1px solid $dropdownBdColor;
+  border-radius: $borderRadiusBase;
   @include tb_box-shadow(0 6px 12px rgba(0,0,0,.175));
   @include tb_background-clip(padding-box);
 
@@ -69,7 +69,7 @@
     padding: 3px 20px;
     clear: both;
     font-weight: normal;
-    line-height: $baseLineHeight;
+    line-height: $lineHeightBase;
     color: $dropdownLinkColor;
     white-space: nowrap;
   }
@@ -83,7 +83,7 @@
 .dropdown-submenu:focus > a { // TODO: don't be so specific limiting this to an <a> tag
   text-decoration: none;
   color: $dropdownLinkColorHover;
-  @include tb_gradient-vertical($dropdownLinkBackgroundHover, darken($dropdownLinkBackgroundHover, 5%));
+  @include tb_gradient-vertical($dropdownLinkBgHover, darken($dropdownLinkBgHover, 5%));
 }
 
 // Active state
@@ -94,7 +94,7 @@
   color: $dropdownLinkColorActive;
   text-decoration: none;
   outline: 0;
-  @include tb_gradient-vertical($dropdownLinkBackgroundActive, darken($dropdownLinkBackgroundActive, 5%));
+  @include tb_gradient-vertical($dropdownLinkBgActive, darken($dropdownLinkBgActive, 5%));
 }
 
 // Disabled state
@@ -186,7 +186,7 @@
   border-color: transparent;
   border-style: solid;
   border-width: 5px 0 5px 5px;
-  border-left-color: darken($dropdownBackground, 20%);
+  border-left-color: darken($dropdownBg, 20%);
   margin-top: 5px;
   margin-right: -10px;
 }

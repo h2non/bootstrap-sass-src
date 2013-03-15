@@ -32,7 +32,7 @@ html {
 body {
   margin: 0;
   color: $textColor;
-  font-family: $baseFontFamily;
+  font-family: $fontFamilyBase;
   font-size: 14px;
   font-size: 1.4rem;
   line-height: 1.5;
@@ -45,9 +45,9 @@ input,
 button,
 select,
 textarea {
-  font-family: $baseFontFamily;
-  font-size: $baseFontSize;
-  line-height: $baseLineHeight;
+  font-family: $fontFamilyBase;
+  font-size: $fontSizeBase;
+  line-height: $lineHeightBase;
 }
 
 

@@ -20,9 +20,9 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: $baseLineHeight;
-  font-size: ($baseFontSize * 1.5);
-  line-height: ($baseLineHeight * 2);
+  margin-bottom: $lineHeightBase;
+  font-size: ($fontSizeBase * 1.5);
+  line-height: ($lineHeightBase * 2);
   color: $grayDark;
   border: 0;
   border-bottom: 1px solid #e5e5e5;  // TODO: should a <legend> border color/ width be a variable?
@@ -56,16 +56,16 @@ input[type="tel"],
 input[type="color"] {
   display: inline-block;
   @include tb_box-sizing(border-box); // Makes inputs behave like true block-level elements
-  min-height: $baseLineHeight; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  min-height: $lineHeightBase; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
   padding: 6px 9px; // TODO: variables for form input padding?
-  // margin-bottom: ($baseLineHeight / 2);
-  font-size: $baseFontSize;
-  line-height: $baseLineHeight;
+  // margin-bottom: ($lineHeightBase / 2);
+  font-size: $fontSizeBase;
+  line-height: $lineHeightBase;
   color: $gray;
   vertical-align: middle;
-  background-color: $inputBackground;
-  border: 1px solid $inputBorder; // TODO: should form input border widths be variables too?
-  border-radius: $inputBorderRadius;
+  background-color: $inputBg;
+  border: 1px solid $inputBdColor; // TODO: should form input border widths be variables too?
+  border-radius: $inputBdRadius;
   @include tb_box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // TODO: should form drop/inset shadows be mixins / vars?
   @include tb_transition(#{border linear .2s, box-shadow linear .2s});
 }
@@ -131,8 +131,8 @@ input[type="checkbox"] {
 // Set the height of select and file controls to match text inputs
 select,
 input[type="file"] {
-  height: $inputHeight; // In IE7, the height of the select element cannot be changed by height, only font-size. TODO: Check if this is still needed when dropping IE7 support
-  line-height: $inputHeight;
+  height: $inputHeightBase; // In IE7, the height of the select element cannot be changed by height, only font-size. TODO: Check if this is still needed when dropping IE7 support
+  line-height: $inputHeightBase;
 }
 
 // Make multiple select elements height not fixed
@@ -167,8 +167,8 @@ textarea {
 .radio,
 .checkbox {
   display: block;
-  min-height: $baseLineHeight; // clear the floating input if there is no label text
-  margin-bottom: ($baseLineHeight / 2);
+  min-height: $lineHeightBase; // clear the floating input if there is no label text
+  margin-bottom: ($lineHeightBase / 2);
   padding-left: 20px; // TODO: variable here?
   label {
     display: inline;
@@ -186,7 +186,7 @@ textarea {
 }
 .radio + .radio,
 .checkbox + .checkbox {
-  margin-top: -($baseLineHeight / 4);
+  margin-top: -($lineHeightBase / 4);
 }
 
 // Move the options list down to align with labels
@@ -268,7 +268,7 @@ textarea[class*="span"] {
 input[class*="span"],
 select[class*="span"],
 textarea[class*="span"] {
-  height: $inputHeight;
+  height: $inputHeightBase;
 }
 
 
@@ -287,7 +287,7 @@ textarea {
   &[readonly],
   fieldset[disabled] & {
     cursor: not-allowed;
-    background-color: $inputDisabledBackground;
+    background-color: $inputBgDisabled;
   }
 }
 // Explicitly reset the colors here
@@ -308,15 +308,15 @@ input[type="checkbox"] {
 
 // Warning
 .has-warning {
-  @include tb_formFieldState($warningText, $warningText, $warningBackground);
+  @include tb_formFieldState($state_warningText, $state_warningText, $state_warningBg);
 }
 // Error
 .has-error {
-  @include tb_formFieldState($errorText, $errorText, $errorBackground);
+  @include tb_formFieldState($state_errorText, $state_errorText, $state_errorBg);
 }
 // Success
 .has-success {
-  @include tb_formFieldState($successText, $successText, $successBackground);
+  @include tb_formFieldState($state_successText, $state_successText, $state_successBg);
 }
 
 // HTML5 invalid states
@@ -338,9 +338,9 @@ select:focus:invalid {
 // ------------
 
 .form-actions {
-  padding: ($baseLineHeight - 1) 20px $baseLineHeight;
-  margin-top: $baseLineHeight;
-  margin-bottom: $baseLineHeight;
+  padding: ($lineHeightBase - 1) 20px $lineHeightBase;
+  margin-top: $lineHeightBase;
+  margin-bottom: $lineHeightBase;
   background-color: $formActionsBackground;
   border-top: 1px solid #e5e5e5; // TOOD: should the form actions top border be a variable?
   @include tb_clearfix; // Adding clearfix to allow for .pull-right button containers
@@ -358,7 +358,7 @@ select:focus:invalid {
 
 .help-block {
   display: block; // account for any element using help-block
-  margin-bottom: ($baseLineHeight / 2);
+  margin-bottom: ($lineHeightBase / 2);
 }
 
 .help-inline {
@@ -416,9 +416,9 @@ select:focus:invalid {
 .input-group-addon {
   @include tb_box-sizing(border-box);
   padding: 6px 8px; // TODO: should these input-group-addon buttons padding be a var?
-  font-size: $baseFontSize;
+  font-size: $fontSizeBase;
   font-weight: normal;
-  line-height: $baseLineHeight;
+  line-height: $lineHeightBase;
   text-align: center;
   text-shadow: 0 1px 0 #fff;
   background-color: $grayLighter; // TODO: should the bg and border of an addon button be a var?
@@ -437,7 +437,7 @@ select:focus:invalid {
 // Reset rounded corners
 .input-group input:first-child,
 .input-group-addon:first-child {
-  @include tb_border-left-radius($baseBorderRadius);
+  @include tb_border-left-radius($borderRadiusBase);
   &.input-small {
     @include tb_border-left-radius($borderRadiusSmall);
   }
@@ -450,7 +450,7 @@ select:focus:invalid {
 }
 .input-group input:last-child,
 .input-group-addon:last-child {
-  @include tb_border-right-radius($baseBorderRadius);
+  @include tb_border-right-radius($borderRadiusBase);
   &.input-small {
     @include tb_border-right-radius($borderRadiusSmall);
   }
@@ -487,7 +487,7 @@ select:focus:invalid {
   // Round the left corners only
   > .btn:first-child,
   > .dropdown-toggle:first-child {
-    @include tb_border-left-radius($baseBorderRadius);
+    @include tb_border-left-radius($borderRadiusBase);
     &.btn-large { @include tb_border-left-radius($borderRadiusLarge); }
     &.btn-small { @include tb_border-left-radius($borderRadiusSmall); }
   }
@@ -498,7 +498,7 @@ select:focus:invalid {
   // Round the right corners only
   > .btn:last-child,
   > .dropdown-toggle {
-    @include tb_border-right-radius($baseBorderRadius);
+    @include tb_border-right-radius($borderRadiusBase);
     &.btn-large { @include tb_border-right-radius($borderRadiusLarge); }
     &.btn-small { @include tb_border-right-radius($borderRadiusSmall); }
   }
@@ -516,7 +516,7 @@ select:focus:invalid {
     // Increase spacing between groups
     .control-group {
       position: relative;
-      margin-bottom: $baseLineHeight;
+      margin-bottom: $lineHeightBase;
       @include tb_clearfix;
 
       input,

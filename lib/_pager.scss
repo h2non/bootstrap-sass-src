@@ -4,7 +4,7 @@
 
 
 .pager {
-  margin: $baseLineHeight 0;
+  margin: $lineHeightBase 0;
   list-style: none;
   text-align: center;
   @include tb_clearfix;
@@ -23,7 +23,7 @@
 .pager li > a:hover,
 .pager li > a:focus {
   text-decoration: none;
-  background-color: #f5f5f5;
+  background-color: $almostWhite;
 }
 .pager .next > a,
 .pager .next > span {

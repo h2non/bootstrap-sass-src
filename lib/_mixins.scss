@@ -110,28 +110,28 @@
 // --------------------------------------------------
 
 @mixin tb_font-family-serif() {
-  font-family: $serifFontFamily;
+  font-family: $fontFamilySerif;
 }
 @mixin tb_font-family-sans-serif() {
-  font-family: $sansFontFamily;
+  font-family: $fontFamilySansSerif;
 }
 @mixin tb_font-family-monospace() {
-  font-family: $monoFontFamily;
+  font-family: $fontFamilyMonospace;
 }
-@mixin tb_font-shorthand($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
+@mixin tb_font-shorthand($size: $fontSizeBase, $weight: normal, $lineHeight: $lineHeightBase) {
   font-size: $size;
   font-weight: $weight;
   line-height: $lineHeight;
 }
-@mixin tb_font-serif($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
+@mixin tb_font-serif($size: $fontSizeBase, $weight: normal, $lineHeight: $lineHeightBase) {
   @include tb_font-family-serif();
   @include tb_font-shorthand($size, $weight, $lineHeight);
 }
-@mixin tb_font-sans-serif($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
+@mixin tb_font-sans-serif($size: $fontSizeBase, $weight: normal, $lineHeight: $lineHeightBase) {
   @include tb_font-family-sans-serif();
   @include tb_font-shorthand($size, $weight, $lineHeight);
 }
-@mixin tb_font-monospace($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
+@mixin tb_font-monospace($size: $fontSizeBase, $weight: normal, $lineHeight: $lineHeightBase) {
   @include tb_font-family-monospace();
   @include tb_font-shorthand($size, $weight, $lineHeight);
 }
@@ -140,7 +140,7 @@
 // FORMS
 // --------------------------------------------------
 
-@mixin tb_formFieldState($textColor: #555, $borderColor: #ccc, $backgroundColor: #f5f5f5) {
+@mixin tb_formFieldState($textColor: #555, $borderColor: #ccc, $backgroundColor: $almostWhite) {
   // Color the label text
   .control-label {
     color: $textColor;
@@ -411,7 +411,7 @@
 // Dividers (basically an hr) within dropdowns and nav lists
 @mixin tb_nav-divider($top: #e5e5e5, $bottom: $white) {
   height: 1px;
-  margin: (($baseLineHeight / 2) - 1) 0;
+  margin: (($lineHeightBase / 2) - 1) 0;
   overflow: hidden;
   background-color: $top;
   border-bottom: 1px solid $bottom;

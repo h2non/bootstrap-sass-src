@@ -4,10 +4,10 @@
 
 // Button carets
 .btn .caret {
-  border-top-color: $btnTextColor;
+  border-top-color: $btnColor;
 }
 .dropup .btn .caret {
-  border-bottom-color: $btnTextColor;
+  border-bottom-color: $btnColor;
 }
 
 // Make the div behave like a button
@@ -56,12 +56,12 @@
 // Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
 .btn-group > .btn:first-child {
   margin-left: 0;
-  @include tb_border-left-radius($baseBorderRadius);
+  @include tb_border-left-radius($borderRadiusBase);
 }
 // Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
 .btn-group > .btn:last-child,
 .btn-group > .dropdown-toggle {
-  @include tb_border-right-radius($baseBorderRadius);
+  @include tb_border-right-radius($borderRadiusBase);
 }
 // Reset corners for large buttons
 .btn-group > .btn.large:first-child {
@@ -138,11 +138,11 @@
 .btn-group-vertical .btn:first-child {
   margin-top: 0;
   border-radius: 0; // Needs to be here for specificity since we're not zeroing them out again
-  @include tb_border-top-radius($baseBorderRadius);
+  @include tb_border-top-radius($borderRadiusBase);
 }
 .btn-group-vertical .btn:last-child {
   border-radius: 0; // Needs to be here for specificity since we're not zeroing them out again
-  @include tb_border-bottom-radius($baseBorderRadius);
+  @include tb_border-bottom-radius($borderRadiusBase);
 }
 .btn-group-vertical .btn-large:first-child {
   @include tb_border-top-radius($borderRadiusLarge);

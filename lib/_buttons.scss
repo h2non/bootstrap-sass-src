@@ -11,14 +11,14 @@
   display: inline-block;
   padding: 6px 12px; // TODO: variable?
   margin-bottom: 0; // For input.btn
-  font-size: $baseFontSize;
+  font-size: $fontSizeBase;
   font-weight: 500;
-  line-height: $baseLineHeight;
+  line-height: $lineHeightBase;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-  border: 1px solid $btnBorder; // TODO: variable for border width?
-  border-radius: $baseBorderRadius; // TODO: be button specific with radius/ padding vars?
+  border: 1px solid $btnBd; // TODO: variable for border width?
+  border-radius: $borderRadiusBase; // TODO: be button specific with radius/ padding vars?
   white-space: nowrap;
 
   &:focus {
@@ -109,27 +109,27 @@ input[type="button"] {
 // --------------------------------------------------
 
 .btn {
-  color: $btnTextColor;
-  @include btn-pseudo-states($btnBackground, $btnBorder);
+  color: $btnColor;
+  @include btn-pseudo-states($btnBg, $btnBd);
 }
 .btn-primary {
-  @include btn-pseudo-states($btnPrimaryBackground, $btnPrimaryBorder);
+  @include btn-pseudo-states($btnBgPrimary, $btnBdPrimary);
 }
 // Warning appears as orange
 .btn-warning {
-  @include btn-pseudo-states($btnWarningBackground, $btnWarningBorder);
+  @include btn-pseudo-states($btnBgWarning, $btnBdWarning);
 }
 // Danger and error appear as red
 .btn-danger {
-  @include btn-pseudo-states($btnDangerBackground, $btnDangerBorder);
+  @include btn-pseudo-states($btnBgDanger, $btnBdDanger);
 }
 // Success appears as green
 .btn-success {
-  @include btn-pseudo-states($btnSuccessBackground, $btnSuccessBorder);
+  @include btn-pseudo-states($btnBgSuccess, $btnBdSucess);
 }
 // Info appears as a blue-green
 .btn-info {
-  @include btn-pseudo-states($btnInfoBackground, $btnInfoBorder);
+  @include btn-pseudo-states($btnBgInfo, $btnBdInfo);
 }
 
 
