@@ -127,8 +127,16 @@
   display: block;
   float: none;
   max-width: 100%;
+  // remove the negative margin set by horizontal version
+  // add correct negative margin to prevent double borders 
+  // when buttons are adjacent to one another
+  + .btn {
+    margin-left: 0;
+    margin-top: -1px;
+  }
 }
 .btn-group-vertical .btn:first-child {
+  margin-top: 0;
   border-radius: 0; // Needs to be here for specificity since we're not zeroing them out again
   @include tb_border-top-radius($baseBorderRadius);
 }
