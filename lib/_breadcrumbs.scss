@@ -7,18 +7,22 @@
   padding: 8px 15px;
   margin: 0 0 $baseLineHeight;
   list-style: none;
-  background-color: #f5f5f5;
+  background-color: #f5f5f5; // TODO: variable?
   @include tb_border-radius($baseBorderRadius);
   > li {
     display: inline-block;
-    @include tb_ie7-inline-block();
-    text-shadow: 0 1px 0 $white;
-    > .divider {
+    text-shadow: 0 1px 0 #fff;
+    @include tb_ie7-inline-block(); // TODO: is this still required since divider is a pseudo elem now?
+
+    // divider
+    &:after {
+      display: inline-block;
+      content: "\00a0 /"; // Unicode space added since inline-block means non-collapsing white-space
       padding: 0 5px;
-      color: #ccc;
+      color: #ccc; // TODO: variable
     }
   }
-  .active {
+  > .active {
     color: $grayLight;
   }
 }

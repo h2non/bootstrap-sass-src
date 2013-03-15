@@ -7,13 +7,13 @@
 // -------------------------
 
 p {
-  margin: 0 0 $baseLineHeight / 2;
+  margin: 0 0 ($baseLineHeight / 2);
 }
 .lead {
   margin-bottom: $baseLineHeight;
-  font-size: $baseFontSize * 1.5;
+  font-size: ($baseFontSize * 1.5);
   font-weight: 200;
-  line-height: $baseLineHeight * 1.5;
+  line-height: 1.25;
 }
 
 
@@ -30,23 +30,19 @@ cite    { font-style: normal; }
 // Utility classes
 .muted               { color: $grayLight; }
 a.muted:hover,
-a.muted:focus        { color: darken($grayLight, 10%); }
+a.muted:focus        { color: darken($grayLight, 10%); } // TODO: don't be so specific limiting this to an <a> tag
 
 .text-warning        { color: $warningText; }
 a.text-warning:hover,
-a.text-warning:focus { color: darken($warningText, 10%); }
+a.text-warning:focus { color: darken($warningText, 10%); } // TODO: don't be so specific limiting this to an <a> tag
 
 .text-error          { color: $errorText; }
 a.text-error:hover,
-a.text-error:focus   { color: darken($errorText, 10%); }
-
-.text-info           { color: $infoText; }
-a.text-info:hover,
-a.text-info:focus    { color: darken($infoText, 10%); }
+a.text-error:focus   { color: darken($errorText, 10%); } // TODO: don't be so specific limiting this to an <a> tag
 
 .text-success        { color: $successText; }
 a.text-success:hover,
-a.text-success:focus { color: darken($successText, 10%); }
+a.text-success:focus { color: darken($successText, 10%); } // TODO: don't be so specific limiting this to an <a> tag
 
 .text-left           { text-align: left; }
 .text-right          { text-align: right; }
@@ -57,11 +53,9 @@ a.text-success:focus { color: darken($successText, 10%); }
 // -------------------------
 
 h1, h2, h3, h4, h5, h6 {
-  margin: ($baseLineHeight / 2) 0;
   font-family: $headingsFontFamily;
   font-weight: $headingsFontWeight;
   line-height: $baseLineHeight;
-  color: $headingsColor;
   text-rendering: optimizelegibility; // Fix the character spacing for headings
   small {
     font-weight: normal;
@@ -72,14 +66,24 @@ h1, h2, h3, h4, h5, h6 {
 
 h1,
 h2,
-h3 { line-height: $baseLineHeight * 2; }
+h3 { 
+  margin-top: $baseLineHeight;
+  margin-bottom: ($baseLineHeight / 2);
+  line-height: ($baseLineHeight * 2);
+}
+h4,
+h5,
+h6 {
+  margin-top: ($baseLineHeight / 2);
+  margin-bottom: ($baseLineHeight / 2);
+}
 
-h1 { font-size: $baseFontSize * 2.75; } // ~38px
-h2 { font-size: $baseFontSize * 2.25; } // ~32px
-h3 { font-size: $baseFontSize * 1.75; } // ~24px
-h4 { font-size: $baseFontSize * 1.25; } // ~18px
-h5 { font-size: $baseFontSize; }
-h6 { font-size: $baseFontSize * 0.85; } // ~12px
+h1 { font-size: $baseFontSize * 2.75; font-size: 4rem; } // ~38px
+h2 { font-size: $baseFontSize * 2.25; font-size: 3rem; } // ~32px
+h3 { font-size: $baseFontSize * 1.75; font-size: 2.5rem; } // ~24px
+h4 { font-size: $baseFontSize * 1.25; font-size: 2rem; } // ~18px
+h5 { font-size: $baseFontSize; font-size: 1.6rem; }
+h6 { font-size: $baseFontSize * 0.85; font-size: 1.2rem; } // ~12px
 
 h1 small { font-size: $baseFontSize * 1.75; } // ~24px
 h2 small { font-size: $baseFontSize * 1.25; } // ~18px
@@ -91,8 +95,8 @@ h4 small { font-size: $baseFontSize; }
 // -------------------------
 
 .page-header {
-  padding-bottom: ($baseLineHeight / 2) - 1;
-  margin: $baseLineHeight 0 ($baseLineHeight * 1.5);
+  padding-bottom: (($baseLineHeight / 2) - 1);
+  margin: ($baseLineHeight * 2) 0 $baseLineHeight;
   border-bottom: 1px solid $grayLighter;
 }
 
@@ -102,9 +106,10 @@ h4 small { font-size: $baseFontSize; }
 // --------------------------------------------------
 
 // Unordered and Ordered lists
-ul, ol {
+ul,
+ol {
   padding: 0;
-  margin: 0 0 $baseLineHeight / 2 25px;
+  margin: 0 0 ($baseLineHeight / 2) 25px;
 }
 ul ul,
 ul ol,
@@ -116,24 +121,20 @@ li {
   line-height: $baseLineHeight;
 }
 
-// Remove default list styles
-ul.unstyled,
-ol.unstyled {
+// List options
+// Unstyled keeps list items block level, just removes list-style
+.list-unstyled,
+// Inline turns list items into inline-block
+.list-inline {
   margin-left: 0;
   list-style: none;
 }
 
 // Single-line list items
-ul.inline,
-ol.inline {
-  margin-left: 0;
-  list-style: none;
-  > li {
-    display: inline-block;
-    @include tb_ie7-inline-block();
-    padding-left: 5px;
-    padding-right: 5px;
-  }
+.list-inline > li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 // Description Lists
@@ -148,14 +149,14 @@ dt {
   font-weight: bold;
 }
 dd {
-  margin-left: $baseLineHeight / 2;
+  margin-left: ($baseLineHeight / 2);
 }
 // Horizontal layout (like forms)
 .dl-horizontal {
   @include tb_clearfix(); // Ensure dl clears floats if empty dd elements present
   dt {
     float: left;
-    width: $horizontalComponentOffset - 20;
+    width: ($horizontalComponentOffset - 20);
     clear: left;
     text-align: right;
     @include tb_text-overflow();
@@ -173,7 +174,7 @@ hr {
   margin: $baseLineHeight 0;
   border: 0;
   border-top: 1px solid $hrBorder;
-  border-bottom: 1px solid $white;
+  border-bottom: 1px solid #fff;
 }
 
 // Abbreviations and acronyms
@@ -195,7 +196,7 @@ blockquote {
   border-left: 5px solid $grayLighter;
   p {
     margin-bottom: 0;
-    font-size: $baseFontSize * 1.25;
+    font-size: ($baseFontSize * 1.25);
     font-weight: 300;
     line-height: 1.25;
   }

@@ -3,7 +3,12 @@
 // --------------------------------------------------
 
 
-// Quick floats
+// Floats
+// -------------------------
+
+.clearfix {
+  @include tb_clearfix();
+}
 .pull-right {
   float: right;
 }
@@ -11,35 +16,27 @@
   float: left;
 }
 
+
 // Toggling content
+// -------------------------
+
 .hide {
-  display: none;
+  display: none !important;
 }
 .show {
-  display: block;
+  display: block !important;
 }
-
-// Visibility
 .invisible {
   visibility: hidden;
 }
+.text-hide {
+  @include tb_hide-text;
+}
+
 
 // For Affix plugin
+// -------------------------
+
 .affix {
   position: fixed;
-}
-
-// Clearing floats
-.clearfix {
-  @include tb_clearfix();
-}
-
-// Accessible yet invisible text
-.hide-text {
-  @include tb_hide-text();
-}
-
-// Uses box-sizing mixin, so must be defined here
-.input-block-level {
-  @include tb_input-block-level();
 }

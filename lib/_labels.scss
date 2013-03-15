@@ -1,0 +1,44 @@
+//
+// Labels
+// --------------------------------------------------
+
+
+// Base classes
+.label {
+  padding: .25em .6em;
+  font-size: 75%;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  background-color: $grayLight;
+  @include tb_border-radius(.25em);
+}
+
+// Hover state, but only for links
+a.label { // TODO: don't be so specific limiting this to an <a> tag
+  &:hover,
+  &:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+// Colors
+// Only give background-color difference to links (and to simplify, we don't qualifty with `a` but [href] attribute)
+
+// Danger (red)
+.label-important         { background-color: $labelDangerBackground; }
+.label-important[href]   { background-color: darken($labelDangerBackground, 10%); }
+// Warnings (orange)
+.label-warning           { background-color: $labelWarningBackground; }
+.label-warning[href]     { background-color: darken($labelWarningBackground, 10%); }
+// Success (green)
+.label-success           { background-color: $labelSuccessBackground; }
+.label-success[href]     { background-color: darken($labelSuccessBackground, 10%); }
+// Info (turquoise)
+.label-info              { background-color: $labelInfoBackground; }
+.label-info[href]        { background-color: darken($labelInfoBackground, 10%); }

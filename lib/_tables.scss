@@ -3,15 +3,16 @@
 // --------------------------------------------------
 
 
-// BASE TABLES
-// -----------------
-
 table {
   max-width: 100%;
   background-color: $tableBackground;
   border-collapse: collapse;
   border-spacing: 0;
 }
+th {
+  text-align: left;
+}
+
 
 // BASELINE STYLES
 // ---------------
@@ -24,12 +25,8 @@ table {
   td {
     padding: 8px;
     line-height: $baseLineHeight;
-    text-align: left;
     vertical-align: top;
     border-top: 1px solid $tableBorder;
-  }
-  th {
-    font-weight: bold;
   }
   // Bottom align for column headings
   thead th {
@@ -74,7 +71,6 @@ table {
 .table-bordered {
   border: 1px solid $tableBorder;
   border-collapse: separate; // Done so we can round those corners!
-  *border-collapse: collapse; // IE7 can't round corners anyway
   border-left: 0;
   @include tb_border-radius($baseBorderRadius);
   th,
@@ -148,7 +144,6 @@ table {
 
 
 
-
 // ZEBRA-STRIPING
 // --------------
 
@@ -161,6 +156,7 @@ table {
     }
   }
 }
+
 
 
 // HOVER EFFECT
@@ -176,28 +172,20 @@ table {
 }
 
 
+
 // TABLE CELL SIZING
 // -----------------
 
-// Reset default grid behavior
-table td[class*="span"],
-table th[class*="span"],
-.row-fluid table td[class*="span"],
-.row-fluid table th[class*="span"] {
+// Reset default table behavior
+table col[class^="span"] {
+  float: none;
+  display: table-column;
+}
+table td[class^="span"],
+table th[class^="span"] {
+  float: none;
   display: table-cell;
-  float: none; // undo default grid column styles
-  margin-left: 0; // undo default grid column styles
 }
-
-// Change the column widths to account for td/th padding
-.table td,
-.table th {
-  @for $i from 1 through 12 {
-    &.span#{$i} { @include tb_tableColumns($i); }
-  }
-}
-
-
 
 // TABLE BACKGROUNDS
 // -----------------
@@ -213,9 +201,6 @@ table th[class*="span"],
   &.warning > td {
     background-color: $warningBackground;
   }
-  &.info > td {
-    background-color: $infoBackground;
-  }
 }
 
 // Hover states for .table-hover
@@ -228,8 +213,5 @@ table th[class*="span"],
   }
   &.warning:hover > td {
     background-color: darken($warningBackground, 5%);
-  }
-  &.info:hover > td {
-    background-color: darken($infoBackground, 5%);
   }
 }

@@ -7,14 +7,21 @@
 // --------------------------------------------------
 
 // Clearfix
-// --------
-// For clearing floats like a boss h5bp.com/q
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+//
+// For modern browsers
+// 1. The space content is one way to avoid an Opera bug when the
+//    contenteditable attribute is included anywhere else in the document.
+//    Otherwise it causes space to appear at the top and bottom of elements
+//    that are clearfixed.
+// 2. The use of `table` rather than `block` is only necessary if using
+//    `:before` to contain the top-margins of child elements.
 @mixin tb_clearfix {
-  *zoom: 1;
+  *zoom: 1; // TODO: not necessary / conditional IE?
   &:before,
   &:after {
-    display: table;
-    content: "";
+    content: " "; // 1
+    display: table; // 2
     // Fixes Opera/contenteditable bug:
     // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
     line-height: 0;
@@ -79,7 +86,7 @@
 
 // Placeholder text
 // -------------------------
-@mixin tb_placeholder($color: $placeholderText) {
+@mixin tb_placeholder($color: $inputColorPlaceholder) {
   &:-moz-placeholder {
     color: $color;
   }
@@ -493,7 +500,7 @@
 
 // Button backgrounds
 // ------------------
-@mixin tb_buttonBackground($startColor, $endColor, $textColor: #fff, $textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
+@mixin btn-pseudo-states($startColor, $endColor, $textColor: $btnTextColor, $textShadow: 0 -1px 0 rgba(0,0,0,.25)) {
   // gradientBar will set the background to a pleasing blend of these, to support IE<=9
   @include tb_gradientBar($startColor, $endColor, $textColor, $textShadow);
   *background-color: $endColor; /* Darken IE7 buttons by default so they stand out more given they won't have borders */

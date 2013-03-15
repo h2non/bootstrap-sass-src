@@ -57,18 +57,3 @@
   .visible-print  { display: inherit !important; }
   .hidden-print   { display: none !important; }
 }
-
-// Clearing floats
-.clearfix {
-  @include tb_clearfix();
-}
-
-// Accessible yet invisible text
-.hide-text {
-  @include tb_hide-text();
-}
-
-// Uses box-sizing mixin, so must be defined here
-.input-block-level {
-  @include tb_input-block-level();
-}

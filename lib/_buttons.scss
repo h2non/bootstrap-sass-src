@@ -6,99 +6,78 @@
 // Base styles
 // --------------------------------------------------
 
-// Core
+// Core styles
 .btn {
   display: inline-block;
-  @include tb_ie7-inline-block();
-  padding: 4px 12px;
+  padding: 6px 12px; // TODO: variable?
   margin-bottom: 0; // For input.btn
   font-size: $baseFontSize;
+  font-weight: 500;
   line-height: $baseLineHeight;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
-  @include tb_buttonBackground($btnBackground, $btnBackgroundHighlight, $grayDark, 0 1px 1px rgba(255,255,255,.75));
-  border: 1px solid $btnBorder;
-  *border: 0; // Remove the border to prevent IE7's black border on input:focus
-  border-bottom-color: darken($btnBorder, 10%);
-  @include tb_border-radius($baseBorderRadius);
-  @include tb_ie7-restore-left-whitespace(); // Give IE7 some love
-  @include tb_box-shadow(#{inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)});
+  border: 1px solid $btnBorder; // TODO: variable for border width?
+  @include tb_border-radius($baseBorderRadius); // TODO: be button specific with radius/ padding vars?
+  white-space: nowrap;
 
-  // Hover/focus state
-  &:hover,
-  &:focus {
-    color: $grayDark;
-    text-decoration: none;
-    background-position: 0 -15px;
-
-    // transition is only when going to hover/focus, otherwise the background
-    // behind the gradient (there for IE<=9 fallback) gets mismatched
-    @include tb_transition(background-position .1s linear);
-  }
-
-  // Focus state for keyboard and accessibility
   &:focus {
     @include tb_tab-focus();
   }
 
-  // Active state
-  &.active,
-  &:active {
-    background-image: none;
-    outline: 0;
-    @include tb_box-shadow(#{inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)});
+  &:hover,
+  &:focus {
+    color: #fff; // TODO: variable?
+    text-decoration: none;
   }
 
-  // Disabled state
-  &.disabled,
-  &[disabled] {
-    cursor: default;
+  &:active,
+  &.active {
+    outline: 0;
     background-image: none;
-    @include tb_opacity(65);
+    @include tb_box-shadow(#{inset 0 3px 5px rgba(0,0,0,.125)}); // TODO: mixin / variable?
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & { // TODO: do we really only want fieldsets to be the disabled containers?
+    cursor: default;
+    @include tb_opacity(.65); // TODO: ensure the opacity mixin can handle decimals
     @include tb_box-shadow(none);
   }
 
 }
 
 
-
 // Button Sizes
-// --------------------------------------------------
+// -------------------------
 
 // Large
 .btn-large {
-  padding: $paddingLarge;
-  font-size: $fontSizeLarge;
-  @include tb_border-radius($borderRadiusLarge);
-}
-.btn-large [class^="icon-"],
-.btn-large [class*=" icon-"] {
-  margin-top: 4px;
+  padding: $paddingLarge; // TODO: be button specific with radius/ padding vars?
+  font-size: $fontSizeLarge; // TODO: be button specific with radius/ padding vars?
+  @include tb_border-radius($borderRadiusLarge); // TODO: be button specific with radius/ padding vars?
 }
 
 // Small
 .btn-small {
-  padding: $paddingSmall;
-  font-size: $fontSizeSmall;
-  @include tb_border-radius($borderRadiusSmall);
-}
-.btn-small [class^="icon-"],
-.btn-small [class*=" icon-"] {
-  margin-top: 0;
-}
-.btn-mini [class^="icon-"],
-.btn-mini [class*=" icon-"] {
-  margin-top: -1px;
+  padding: $paddingSmall; // TODO: be button specific with radius/ padding vars?
+  font-size: $fontSizeSmall; // TODO: be button specific with radius/ padding vars?
+  @include tb_border-radius($borderRadiusSmall); // TODO: be button specific with radius/ padding vars?
 }
 
 // Mini
 .btn-mini {
-  padding: $paddingMini;
-  font-size: $fontSizeMini;
-  @include tb_border-radius($borderRadiusSmall);
+  padding: $paddingMini; // TODO: be button specific with radius/ padding vars?
+  font-size: $fontSizeMini; // TODO: be button specific with radius/ padding vars?
+  @include tb_border-radius($borderRadiusSmall); // TODO: be button specific with radius/ padding vars?
 }
 
+
+// Icons in buttons
+// -------------------------
+
+// TODO: figure this shit out
 
 // Block button
 // -------------------------
@@ -113,7 +92,7 @@
 
 // Vertically space out multiple block buttons
 .btn-block + .btn-block {
-  margin-top: 5px;
+  margin-top: 5px; // TODO: variable? match up with the horizontal spacing we use on .btn-group?
 }
 
 // Specificity overrides
@@ -126,75 +105,31 @@ input[type="button"] {
 }
 
 
-
 // Alternate buttons
 // --------------------------------------------------
 
-// Provide *some* extra contrast for those who can get it
-.btn-primary.active,
-.btn-warning.active,
-.btn-danger.active,
-.btn-success.active,
-.btn-info.active,
-.btn-inverse.active {
-  color: rgba(255,255,255,.75);
+.btn {
+  color: $btnTextColor;
+  @include btn-pseudo-states($btnBackground, $btnBorder);
 }
-
-// Set the backgrounds
-// -------------------------
 .btn-primary {
-  @include tb_buttonBackground($btnPrimaryBackground, $btnPrimaryBackgroundHighlight);
+  @include btn-pseudo-states($btnPrimaryBackground, $btnPrimaryBorder);
 }
-// Warning appears are orange
+// Warning appears as orange
 .btn-warning {
-  @include tb_buttonBackground($btnWarningBackground, $btnWarningBackgroundHighlight);
+  @include btn-pseudo-states($btnWarningBackground, $btnWarningBorder);
 }
 // Danger and error appear as red
 .btn-danger {
-  @include tb_buttonBackground($btnDangerBackground, $btnDangerBackgroundHighlight);
+  @include btn-pseudo-states($btnDangerBackground, $btnDangerBorder);
 }
 // Success appears as green
 .btn-success {
-  @include tb_buttonBackground($btnSuccessBackground, $btnSuccessBackgroundHighlight);
+  @include btn-pseudo-states($btnSuccessBackground, $btnSuccessBorder);
 }
-// Info appears as a neutral blue
+// Info appears as a blue-green
 .btn-info {
-  @include tb_buttonBackground($btnInfoBackground, $btnInfoBackgroundHighlight);
-}
-// Inverse appears as dark gray
-.btn-inverse {
-  @include tb_buttonBackground($btnInverseBackground, $btnInverseBackgroundHighlight);
-}
-
-
-// Cross-browser Jank
-// --------------------------------------------------
-
-button.btn,
-input[type="submit"].btn {
-
-  // Firefox 3.6 only I believe
-  &::-moz-focus-inner {
-    padding: 0;
-    border: 0;
-  }
-
-  // IE7 has some default padding on button controls
-  *padding-top: 3px;
-  *padding-bottom: 3px;
-
-  &.btn-large {
-    *padding-top: 7px;
-    *padding-bottom: 7px;
-  }
-  &.btn-small {
-    *padding-top: 3px;
-    *padding-bottom: 3px;
-  }
-  &.btn-mini {
-    *padding-top: 1px;
-    *padding-bottom: 1px;
-  }
+  @include btn-pseudo-states($btnInfoBackground, $btnInfoBorder);
 }
 
 
@@ -204,15 +139,22 @@ input[type="submit"].btn {
 // Make a button look and behave like a link
 .btn-link,
 .btn-link:active,
-.btn-link[disabled] {
+.btn-link[disabled],
+fieldset[disabled] .btn-link { // TODO: should we only allow fieldset to be disabled?
   background-color: transparent;
   background-image: none;
   @include tb_box-shadow(none);
 }
-.btn-link {
+.btn-link,
+.btn-link:hover,
+.btn-link:focus,
+.btn-link:active {
   border-color: transparent;
-  cursor: pointer;
+}
+.btn-link {
   color: $linkColor;
+  font-weight: normal;
+  cursor: pointer;
   @include tb_border-radius(0);
 }
 .btn-link:hover,
@@ -221,8 +163,13 @@ input[type="submit"].btn {
   text-decoration: underline;
   background-color: transparent;
 }
-.btn-link[disabled]:hover,
-.btn-link[disabled]:focus {
-  color: $grayDark;
-  text-decoration: none;
+.btn-link {
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover, 
+    &:focus {
+      color: $grayDark;
+      text-decoration: none;
+    }
+  }
 }

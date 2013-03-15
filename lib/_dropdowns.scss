@@ -8,10 +8,6 @@
 .dropdown {
   position: relative;
 }
-.dropdown-toggle {
-  // The caret makes the toggle a bit too tall in IE7
-  *margin-bottom: -3px;
-}
 .dropdown-toggle:active,
 .open .dropdown-toggle {
   outline: 0;
@@ -24,7 +20,7 @@
   width: 0;
   height: 0;
   vertical-align: top;
-  border-top:   4px solid $black;
+  border-top:   4px solid #000;
   border-right: 4px solid transparent;
   border-left:  4px solid transparent;
   content: "";
@@ -50,15 +46,11 @@
   margin: 2px 0 0; // override default ul
   list-style: none;
   background-color: $dropdownBackground;
-  border: 1px solid #ccc; // Fallback for IE7-8
+  border: 1px solid #ccc; // Fallback for IE7-8 TODO: (won't need if the regular border isn't transparent)
   border: 1px solid $dropdownBorder;
-  *border-right-width: 2px;
-  *border-bottom-width: 2px;
-  @include tb_border-radius(6px);
-  @include tb_box-shadow(0 5px 10px rgba(0,0,0,.2));
-  -webkit-background-clip: padding-box;
-     -moz-background-clip: padding;
-          background-clip: padding-box;
+  @include tb_border-radius($baseBorderRadius);
+  @include tb_box-shadow(0 6px 12px rgba(0,0,0,.175));
+  @include tb_background-clip(padding-box);
 
   // Aligns the dropdown menu to right
   &.pull-right {
@@ -72,7 +64,7 @@
   }
 
   // Links within the dropdown menu
-  > li > a {
+  > li > a { // TODO: don't be so specific limiting this to an <a> tag
     display: block;
     padding: 3px 20px;
     clear: both;
@@ -83,15 +75,14 @@
   }
 }
 
-// Hover/Focus state
+// Hover/Focus state TODO: the hover/focus state of dropdown menus should match the new "global" menu states
 // -----------
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus,
 .dropdown-submenu:hover > a,
-.dropdown-submenu:focus > a {
+.dropdown-submenu:focus > a { // TODO: don't be so specific limiting this to an <a> tag
   text-decoration: none;
   color: $dropdownLinkColorHover;
-  background-color: $dropdownLinkBackgroundHover;
   @include tb_gradient-vertical($dropdownLinkBackgroundHover, darken($dropdownLinkBackgroundHover, 5%));
 }
 
@@ -99,11 +90,10 @@
 // ------------
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
-.dropdown-menu > .active > a:focus {
+.dropdown-menu > .active > a:focus {  // TODO: don't be so specific limiting this to an <a> tag
   color: $dropdownLinkColorActive;
   text-decoration: none;
   outline: 0;
-  background-color: $dropdownLinkBackgroundActive;
   @include tb_gradient-vertical($dropdownLinkBackgroundActive, darken($dropdownLinkBackgroundActive, 5%));
 }
 
@@ -112,7 +102,7 @@
 // Gray out text and ensure the hover/focus state remains gray
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
-.dropdown-menu > .disabled > a:focus {
+.dropdown-menu > .disabled > a:focus { // TODO: don't be so specific limiting this to an <a> tag
   color: $grayLight;
 }
 // Nuke hover/focus effects
@@ -128,10 +118,6 @@
 // Open state for the dropdown
 // ---------------------------
 .open {
-  // IE7's z-index only goes to the nearest positioned ancestor, which would
-  // make the menu appear below buttons that appeared later on the page
-  *z-index: $zindexDropdown;
-
   & > .dropdown-menu {
     display: block;
   }
@@ -153,7 +139,7 @@
   // Reverse the caret
   .caret {
     border-top: 0;
-    border-bottom: 4px solid $black;
+    border-bottom: 4px solid #000; // TODO: should the caret size be a variable?
     content: "";
   }
   // Different positioning for bottom up menu
@@ -175,7 +161,7 @@
   left: 100%;
   margin-top: -6px;
   margin-left: -1px;
-  @include tb_border-radius(0 6px 6px 6px);
+  @include tb_border-top-left-radius(0); // Nuke the closest corner as appropriate
 }
 .dropdown-submenu:hover > .dropdown-menu {
   display: block;
@@ -187,11 +173,11 @@
   bottom: 0;
   margin-top: 0;
   margin-bottom: -2px;
-  @include tb_border-radius(5px 5px 5px 0);
+  @include tb_border-bottom-left-radius(0); // Nuke the closest corner as appropriate
 }
 
 // Caret to indicate there is a submenu
-.dropdown-submenu > a:after {
+.dropdown-submenu > a:after { // TODO: don't be so specific limiting this to an <a> tag
   display: block;
   content: " ";
   float: right;
@@ -204,7 +190,7 @@
   margin-top: 5px;
   margin-right: -10px;
 }
-.dropdown-submenu:hover > a:after {
+.dropdown-submenu:hover > a:after { // TODO: don't be so specific limiting this to an <a> tag
   border-left-color: $dropdownLinkColorHover;
 }
 
@@ -218,12 +204,12 @@
   > .dropdown-menu {
     left: -100%;
     margin-left: 10px;
-    @include tb_border-radius(6px 0 6px 6px);
+    @include tb_border-top-right-radius(0); // Remove the rounded corner here
   }
 }
 
 // Tweak nav headers
-// -----------------
+// ---------------------------
 // Increase padding from 15px to 20px on sides
 .dropdown .dropdown-menu .nav-header {
   padding-left: 20px;
@@ -231,9 +217,7 @@
 }
 
 // Typeahead
-// ---------
+// ---------------------------
 .typeahead {
-  z-index: 1051;
-  margin-top: 2px; // give it some space to breathe
-  @include tb_border-radius($baseBorderRadius);
+  z-index: 1051; // TODO: should this z-index be a variable?
 }

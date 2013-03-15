@@ -6,46 +6,80 @@
 // Body reset
 // -------------------------
 
+html {
+  font-size: 62.5%;
+  // Touch the Mobile Magicâ
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+// Disable iOS/WinMobile font size changes
+@media screen and (max-device-width: 480px) {
+  html {
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+  }
+}
+
 body {
   margin: 0;
+  color: $textColor;
+  font-family: $baseFontFamily;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  background-color: $bodyBackground;
+}
+
+// Reset fonts for revelant elements
+body,
+input,
+button,
+select,
+textarea {
   font-family: $baseFontFamily;
   font-size: $baseFontSize;
   line-height: $baseLineHeight;
-  color: $textColor;
-  background-color: $bodyBackground;
 }
 
 
 // Links
 // -------------------------
 
-a {
+a { // TODO: don't be so specific limiting this to an <a> tag
   color: $linkColor;
   text-decoration: none;
 }
 a:hover,
-a:focus {
+a:focus { // TODO: don't be so specific limiting this to an <a> tag
   color: $linkColorHover;
   text-decoration: underline;
+}
+a:focus {
+  @include tb_tab-focus;
 }
 
 
 // Images
 // -------------------------
 
+img {
+  // Responsive images (ensure images don't scale beyond their parents)
+  max-width: 100%; // Part 1: Set a maxium relative to the parent
+  width: auto\9; // IE8 need help adjusting responsive images
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+
+  // Match vertical alignment with other comment elements
+  vertical-align: middle;
+}
+
 // Rounded corners
 .img-rounded {
   @include tb_border-radius(6px);
 }
 
-// Add polaroid-esque trim
-.img-polaroid {
-  padding: 4px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0,0,0,.2);
-  @include tb_box-shadow(0 1px 3px rgba(0,0,0,.1));
-}
+// Image thumbnails
+// See _thumbnails.scss for '.img-thumbnail'
 
 // Perfect circle
 .img-circle {
