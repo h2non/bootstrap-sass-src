@@ -93,7 +93,8 @@
 }
 // Close icon
 .modal-header .close { 
-  margin-top: 2px;
+  right: 0;
+  top: 2px;
 }
 
 // Title text within header
@@ -107,6 +108,9 @@
 .modal-body {
   position: relative;
   padding: $modalInnerPadding;
+  // this area should scroll
+  overflow-y: auto;
+  max-height: 400px;
 }
 
 // Footer (for actions)
