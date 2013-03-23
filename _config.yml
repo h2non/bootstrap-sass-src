@@ -8,5 +8,10 @@ permalink:    pretty
 # Server
 source:       ./docs
 destination:  ./_gh_pages
-url:          http://bootstrap.dev:9001
 server_port:  9001
+
+# Remote URL (comment out when testing locally)
+url:          https://github.com/alademann/bootstrap-sass-scss-compass
+
+# Local URL (comment out before sending to server)
+#url:          /
