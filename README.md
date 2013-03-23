@@ -1,8 +1,8 @@
-# [SASS Bootstrap v3.0.0](http://alademann.github.com/bootstrap-sass-scss-compass/)
+# [SASS Bootstrap v3.0.0](http://alademann.github.com/sass-bootstrap/)
 
 Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat), and ported to SASS/Compass by [Aaron Lademann](https://github.com/alademann).
 
-To get started, check out [The SASS Bootstrap Documentation](http://alademann.github.com/bootstrap-sass-scss-compass/)!
+To get started, check out [The SASS Bootstrap Documentation](http://alademann.github.com/sass-bootstrap/)!
 
 
 
@@ -10,21 +10,21 @@ To get started, check out [The SASS Bootstrap Documentation](http://alademann.gi
 
 Three quick start options are available:
 
-* [Download the latest release](https://github.com/alademann/bootstrap-sass-scss-compass/zipball/master).
-* Clone the repo: `git clone git://github.com/alademann/bootstrap-sass-scss-compass.git`.
+* [Download the latest release](https://github.com/alademann/sass-bootstrap/zipball/master).
+* Clone the repo: `git clone git://github.com/alademann/sass-bootstrap.git`.
 
-Read the [Getting Started page](http://alademann.github.com/bootstrap-sass-scss-compass/getting-started/) for information on the framework contents, basic template guidelines, and more.
+Read the [Getting Started page](http://alademann.github.com/sass-bootstrap/getting-started/) for information on the framework contents, basic template guidelines, and more.
 
 
 ## Bugs and feature requests
 
-Have a bug or a feature request? [Please open a new issue](https://github.com/alademann/bootstrap-sass-scss-compass/issues). Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/necolas/issue-guidelines), written by [Nicolas Gallagher](https://github.com/necolas/).
+Have a bug or a feature request? [Please open a new issue](https://github.com/alademann/sass-bootstrap/issues). Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/necolas/issue-guidelines), written by [Nicolas Gallagher](https://github.com/necolas/).
 
 
 
 ## Documentation
 
-SASS Bootstrap's docs are built using [Jekyll](http://jekyllrb.com) and hosted on [GitHub Pages](http://alademann.github.com/bootstrap-sass-scss-compass/). To view our docs locally, you'll need to [install Jekyll](https://github.com/mojombo/jekyll/wiki/install) to run a local server.
+SASS Bootstrap's docs are built using [Jekyll](http://jekyllrb.com) and hosted on [GitHub Pages](http://alademann.github.com/sass-bootstrap/). To view our docs locally, you'll need to [install Jekyll](https://github.com/mojombo/jekyll/wiki/install) to run a local server.
 
 
 ### Running Jekyll locally alongside SASS / Compass

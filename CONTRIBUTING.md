@@ -71,4 +71,4 @@ As of v3.0.0, SASS Bootstrap's documentation is powered by Jekyll templates and 
 
 ## License
 
-By contributing your code, you agree to license your contribution under the terms of the APLv2: https://github.com/alademann/bootstrap-sass-scss-compass/blob/master/LICENSE
+By contributing your code, you agree to license your contribution under the terms of the APLv2: https://github.com/alademann/sass-bootstrap/blob/master/LICENSE
