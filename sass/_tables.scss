@@ -191,26 +191,38 @@ table th[class^="span"] {
 // -----------------
 // Exact selectors below required to override .table-striped
 
-.table tbody tr {
+.table > tbody > tr {
+  > td.success,
+  > th.success,
   &.success > td {
     background-color: $state_successBg;
   }
+  > td.error,
+  > th.error,
   &.error > td {
     background-color: $state_errorBg;
   }
+  > td.warning,
+  > th.warning,
   &.warning > td {
     background-color: $state_warningBg;
   }
 }
 
 // Hover states for .table-hover
-.table-hover tbody tr {
+.table-hover > tbody > tr {
+  > td.success:hover,
+  > th.success:hover,
   &.success:hover > td {
     background-color: darken($state_successBg, 5%);
   }
+  > td.error:hover,
+  > th.error:hover,
   &.error:hover > td {
     background-color: darken($state_errorBg, 5%);
   }
+  > td.warning:hover,
+  > th.warning:hover,_
   &.warning:hover > td {
     background-color: darken($state_warningBg, 5%);
   }

@@ -101,7 +101,7 @@
 // The clickable button for toggling the menu
 // Remove the gradient and set the same inset shadow as the :active state
 .btn-group.open .dropdown-toggle {
-  @include tb_box-shadow(#{inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)});
+  @include tb_box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
 }
 
 
@@ -126,6 +126,7 @@
 .btn-group-vertical > .btn {
   display: block;
   float: none;
+  width: 100%;
   max-width: 100%;
   // remove the negative margin set by horizontal version
   // add correct negative margin to prevent double borders 
@@ -163,4 +164,11 @@
     display: table-cell;
     width: 1%;
   }
+}
+
+
+// Checkbox and radio options
+.btn-group[data-toggle="buttons-radio"] > .btn > input[type="radio"],
+.btn-group[data-toggle="buttons-checkbox"] > .btn > input[type="checkbox"] {
+  display: none;
 }

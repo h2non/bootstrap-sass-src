@@ -35,13 +35,14 @@
   &.active {
     outline: 0;
     background-image: none;
-    @include tb_box-shadow(#{inset 0 3px 5px rgba(0,0,0,.125)}); // TODO: mixin / variable?
+    @include tb_box-shadow(inset 0 3px 5px rgba(0,0,0,.125)); // TODO: mixin / variable?
   }
 
   &.disabled,
   &[disabled],
   fieldset[disabled] & { // TODO: do we really only want fieldsets to be the disabled containers?
     cursor: default;
+    pointer-events: none; // Future-proof disabling of clicks
     @include tb_opacity(.65); // TODO: ensure the opacity mixin can handle decimals
     @include tb_box-shadow(none);
   }
@@ -54,23 +55,23 @@
 
 // Large
 .btn-large {
-  padding: $paddingLarge; // TODO: be button specific with radius/ padding vars?
-  font-size: $fontSizeLarge; // TODO: be button specific with radius/ padding vars?
-  border-radius: $borderRadiusLarge; // TODO: be button specific with radius/ padding vars?
+  padding: $paddingLarge;
+  font-size: $fontSizeLarge;
+  border-radius: $borderRadiusLarge;
 }
 
 // Small
 .btn-small {
-  padding: $paddingSmall; // TODO: be button specific with radius/ padding vars?
-  font-size: $fontSizeSmall; // TODO: be button specific with radius/ padding vars?
-  border-radius: $borderRadiusSmall; // TODO: be button specific with radius/ padding vars?
+  padding: $paddingSmall;
+  font-size: $fontSizeSmall;
+  border-radius: $borderRadiusSmall;
 }
 
 // Mini
 .btn-mini {
-  padding: $paddingMini; // TODO: be button specific with radius/ padding vars?
-  font-size: $fontSizeMini; // TODO: be button specific with radius/ padding vars?
-  border-radius: $borderRadiusSmall; // TODO: be button specific with radius/ padding vars?
+  padding: $paddingMini;
+  font-size: $fontSizeMini;
+  border-radius: $borderRadiusSmall;
 }
 
 
@@ -87,7 +88,6 @@
   width: 100%;
   padding-left: 0;
   padding-right: 0;
-  @include tb_box-sizing(border-box);
 }
 
 // Vertically space out multiple block buttons
@@ -166,7 +166,7 @@ fieldset[disabled] .btn-link { // TODO: should we only allow fieldset to be disa
 .btn-link {
   &[disabled],
   fieldset[disabled] & {
-    &:hover, 
+    &:hover,
     &:focus {
       color: $grayDark;
       text-decoration: none;

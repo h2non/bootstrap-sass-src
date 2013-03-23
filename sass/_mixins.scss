@@ -106,59 +106,6 @@
 }
 
 
-// FONTS
-// --------------------------------------------------
-
-@mixin tb_font-family-serif() {
-  font-family: $fontFamilySerif;
-}
-@mixin tb_font-family-sans-serif() {
-  font-family: $fontFamilySansSerif;
-}
-@mixin tb_font-family-monospace() {
-  font-family: $fontFamilyMonospace;
-}
-@mixin tb_font-shorthand($size: $fontSizeBase, $weight: normal, $lineHeight: $lineHeightBase) {
-  font-size: $size;
-  font-weight: $weight;
-  line-height: $lineHeight;
-}
-@mixin tb_font-serif($size: $fontSizeBase, $weight: normal, $lineHeight: $lineHeightBase) {
-  @include tb_font-family-serif();
-  @include tb_font-shorthand($size, $weight, $lineHeight);
-}
-@mixin tb_font-sans-serif($size: $fontSizeBase, $weight: normal, $lineHeight: $lineHeightBase) {
-  @include tb_font-family-sans-serif();
-  @include tb_font-shorthand($size, $weight, $lineHeight);
-}
-@mixin tb_font-monospace($size: $fontSizeBase, $weight: normal, $lineHeight: $lineHeightBase) {
-  @include tb_font-family-monospace();
-  @include tb_font-shorthand($size, $weight, $lineHeight);
-}
-
-
-// FORMS
-// --------------------------------------------------
-
-@mixin tb_formFieldState($textColor: #555, $borderColor: #ccc, $backgroundColor: $almostWhite) {
-  // Color the label text
-  .control-label {
-    color: $textColor;
-  }
-  // Set the border and box shadow on specific inputs to match
-  .input-with-feedback {
-    padding-right: 32px; // to account for the feedback icon
-    border-color: $borderColor;
-    @include tb_box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
-    &:focus {
-      border-color: darken($borderColor, 10%);
-      $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten($borderColor, 20%);
-      @include tb_box-shadow($shadow);
-    }
-  }
-}
-
-
 
 // CSS3 PROPERTIES
 // --------------------------------------------------
@@ -402,6 +349,25 @@
 }
 
 
+// RETINA IMAGE SUPPORT
+// --------------------------------------------------
+
+// Short retina mixin for setting background-image and -size
+@mixin retinaImage($file1x, $file2x, $width1x, $height1x) {
+  background-image: url("#{$file1x}");
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background-image: url("#{$file2x}");
+    background-size: $width1x $height1x;
+  }
+}
+
 
 // COMPONENT MIXINS
 // --------------------------------------------------
@@ -437,7 +403,8 @@
   fieldset[disabled] & { // TODO: should we limit this to fieldset only?
     &:hover,
     &:focus,
-    &:active {
+    &:active,
+    &.active {
       background-color: $background;
           border-color: $border;
     }
@@ -466,21 +433,47 @@
 }
 
 // Make a Grid
-// Use tb_makeRow() and tb_makeColumn() to assign semantic layouts grid system behavior
-// @mixin tb_makeRow() {
-//   margin-left: $gridGutterWidth * -1;
-//   @include tb_clearfix;
-// }
-// @mixin tb_makeColumn($columns: 1, $offset: 0) {
-//   float: left;
-//   margin-left: ($gridColumnWidth * $offset) + ($gridGutterWidth * ($offset - 1)) + ($gridGutterWidth * 2);
-//   width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
-// }
 
+// Creates a wrapper for a series of columns
 @mixin tb_makeRow() {
-
+  // Negative margin the row out to align the content of columns
+  margin-left:  ($gridGutterWidth / -2);
+  margin-right: ($gridGutterWidth / -2);
+  // Then clear the floated columns
+  @include tb_clearfix;
+}
+// Generate the columns
+@mixin tb_makeColumn($columns) {
+  @media (min-width: $gridFloatBreakpoint) {
+    float: left;
+    // Calculate width based on number of columns available
+    width: percentage($columns / $gridColumns);
+  }
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
+  // Set inner padding as gutters instead of margin
+  padding-left:  ($gridGutterWidth / 2);
+  padding-right: ($gridGutterWidth / 2);
+}
+// Generate the column offsets
+@mixin tb_makeColumnOffset($columns) {
+  @media (min-width: $gridFloatBreakpoint) {
+    margin-left: percentage(($columns / $gridColumns));
+  }
+}
+@mixin tb_makeColumnPush($columns) {
+  @media (min-width: $gridFloatBreakpoint) {
+    left: percentage(($columns / $gridColumns));
+  }
+}
+@mixin tb_makeColumnPull($columns) {
+  @media (min-width: $gridFloatBreakpoint) {
+    right: percentage(($columns / $gridColumns));
+  }
 }
 
+
+// The Grid
 @mixin tb_makeColumn($columns) {
   float: left;
   padding: $gridGutterWidth;
@@ -493,7 +486,7 @@
 
 
 // The Grid
-@mixin tb_grid-core($gridColumnWidth, $gridGutterWidth) {
+@mixin tb_grid-core($gridColumnWidth) {
   @include tb_grid-span-x($gridColumns);
   @include tb_grid-offset-x($gridColumns);
 }
@@ -517,4 +510,36 @@
 }
 @mixin tb_grid-span($columns) {
   width: percentage(($columns / $gridColumns));
+}
+
+
+
+// Framework mixins
+// --------------------------------------------------
+
+// Generate rem font-sizes with pixel fallbacks
+// By default uses `$fontSizeBase` with an initial value of 14px
+@mixin fontSize($fontSize: $fontSizeBase) {
+  $remSize: ($fontSize / 10);
+  font-size: $fontSize + 0px;
+  font-size: #{$remSize}rem;
+}
+
+// Generate form validation states
+@mixin tb_formFieldState($textColor: #555, $borderColor: #ccc, $backgroundColor: #f5f5f5) {
+  // Color the label text
+  .control-label {
+    color: $textColor;
+  }
+  // Set the border and box shadow on specific inputs to match
+  .input-with-feedback {
+    padding-right: 32px; // to account for the feedback icon
+    border-color: $borderColor;
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // Redeclare so transitions work
+    &:focus {
+      border-color: darken($borderColor, 10%);
+      $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten($borderColor, 20%);
+      @include box-shadow(#{$shadow});
+    }
+  }
 }

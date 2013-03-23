@@ -30,12 +30,7 @@ html {
 }
 
 body {
-  margin: 0;
   color: $textColor;
-  font-family: $fontFamilyBase;
-  font-size: 14px;
-  font-size: 1.4rem;
-  line-height: 1.5;
   background-color: $bodyBackground;
 }
 
@@ -54,12 +49,12 @@ textarea {
 // Links
 // -------------------------
 
-a { // TODO: don't be so specific limiting this to an <a> tag
+a {
   color: $linkColor;
   text-decoration: none;
 }
 a:hover,
-a:focus { // TODO: don't be so specific limiting this to an <a> tag
+a:focus {
   color: $linkColorHover;
   text-decoration: underline;
 }
