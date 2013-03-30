@@ -1,15 +1,18 @@
 /*
- * Bootstrap Documentation
+ * Sass Bootstrap Documentation
  * Special styles for presenting Bootstrap's documentation and code examples.
  */
 
+// Core constants
+@import "variables";
+@import "mixins";
 
 
 /* Key scaffolding
 -------------------------------------------------- */
 
 body {
-  padding-top: 54px;
+  padding-top: $navbarHeight;
   position: relative; /* For scrollyspy */
   /* We add the padding to the body for >768px only */
 }
@@ -28,6 +31,11 @@ body {
 /* Padding for in-page bookmarks */
 section {
   padding-top: 30px;
+
+  // except for the first one
+  .container > .row &:first-child {
+      padding-top: 0;
+  }
 }
 
 /* Few stylistic typography tweaks */
@@ -43,23 +51,51 @@ section > ul li {
 
 /* Navbar
 -------------------------------------------------- */
-
+$sassLangBrandColor:        #ce4dd6;
+$sassLangBrandBgDark:       #9b3aa1;
+$sassNavbarBdColor:         lighten($sassLangBrandColor, 30%);
+$sassNavbarLinkBgHover:     #f6f2f7;
+$sassNavbarLinkColorActive: $sassLangBrandColor;
 .bs-docs-navbar {
   background-color: #fff;
-  border-bottom: 1px solid #ccc; /* IE8 */
-  border-bottom: 1px solid rgba(0,0,0,.1);
+  border-bottom: 1px solid $sassNavbarBdColor;
 }
-.bs-docs-navbar .nav > .active > a,
-.bs-docs-navbar .nav > .active > a:hover {
-  font-weight: 500;
-  background-color: transparent;
+.bs-docs-navbar .nav {
+  > li {
+
+    > a {
+      &:hover, 
+      &:focus {
+        outline: 0 none;
+        background-color: $sassNavbarLinkBgHover;
+      }
+    }
+
+    &.active {
+      > a {
+        &, 
+        &:hover, 
+        &:focus {
+          font-weight: 500;
+          background-color: transparent;
+          color: $sassNavbarLinkColorActive;
+          cursor: default; // they arre already here.
+        }
+      }
+    }
+  }
+}
+
+// emphasize the Sass word with the sass-lang.com color
+.navbar-brand b {
+  color: $sassLangBrandColor;
 }
 
 
 
 /* Jumbotrons
 -------------------------------------------------- */
-
+$jumboBgColor: $sassLangBrandBgDark;
 /* Base class */
 .bs-docs-jumbotron {
   position: relative;
@@ -67,7 +103,7 @@ section > ul li {
   padding: 30px 15px;
   color: #fff;
   text-align: center;
-  background-color: #b94a48;
+  background-color: $jumboBgColor;
 }
 .bs-docs-jumbotron h1 {
   font-size: 50px;
@@ -89,13 +125,11 @@ section > ul li {
 .bs-docs-jumbotron .btn {
   padding: 18px 24px;
   font-size: 21px;
-  color: #b94a48; /* redeclare to override the `.jumbotron a` */
-  background-color: #fff;
 }
 .bs-docs-jumbotron .btn,
 .bs-docs-jumbotron .btn:hover,
 .bs-docs-jumbotron .btn:active {
-  color: #b94a48; /* redeclare to override the `.jumbotron a` */
+  color: $jumboBgColor;
   background-color: #fff;
   border-color: #fff;
 }
@@ -165,7 +199,7 @@ section > ul li {
   background-color: #eee;
   border: 1px solid #ddd;
 }
-.show-grid [class*="span"]:hover {
+.show-grid [class^="span"]:hover {
   background-color: #ddd;
 }
 
@@ -216,6 +250,14 @@ section > ul li {
   border: 1px solid #ddd;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
+
+  .navbar-fixed-top, .navbar-fixed-bottom {
+      // keep within example wrapper
+      position: absolute;
+      // keep main docs navbar above it
+      z-index: $zindexFixedNavbar - 1;
+  }
+
 }
 /* Echo out a label for the example */
 .bs-docs-example:after {
@@ -257,6 +299,46 @@ section > ul li {
 .bs-docs-example > .alert:last-child {
   margin-bottom: 0;
 }
+
+/* Tooltips */
+.bs-docs-tooltip-examples {
+  text-align: center;
+  margin: 0 0 10px;
+  list-style: none;
+}
+.bs-docs-tooltip-examples li {
+  display: inline;
+  padding: 0 10px;
+}
+
+/* Popovers */
+.bs-docs-example-popover {
+  padding-bottom: 24px;
+  background-color: #f9f9f9;
+}
+.bs-docs-example-popover .popover {
+  position: relative;
+  display: block;
+  float: left;
+  width: 260px;
+  margin: 20px;
+}
+
+/* Dropdowns */
+.bs-docs-example-submenus {
+  min-height: 180px;
+}
+.bs-docs-example-submenus > .pull-left + .pull-left {
+  margin-left: 20px;
+}
+.bs-docs-example-submenus .dropup > .dropdown-menu,
+.bs-docs-example-submenus .dropdown > .dropdown-menu {
+  display: block;
+  position: static;
+  margin-bottom: 5px;
+  *width: 180px;
+}
+
 
 /* Typography */
 .bs-docs-example-type .table td {
@@ -345,7 +427,7 @@ section > ul li {
   margin-bottom: 5px;
 }
 .bs-docs-example-submenu {
-  min-height: 180px;
+  min-height: 240px;
 }
 .bs-docs-example-submenu > .pull-left + .pull-left {
   margin-left: 20px;
@@ -488,7 +570,16 @@ section > ul li {
   text-align: center;
   padding: 30px 0;
   margin-top: 100px;
-  border-top: 1px solid #e5e5e5;
+
+  &, .attrib {
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .attrib {
+    margin-top: 30px;
+    padding-top: 15px;
+  }
+
 }
 .bs-docs-footer p {
   margin-bottom: 0;
@@ -520,8 +611,11 @@ section > ul li {
 }
 .bs-docs-social-buttons li {
   display: inline-block;
-  padding: 5px 8px;
+  padding: 5px 8px 5px 0;
   line-height: 1;
+  &:last-child {
+    padding-right: 0;
+  }
 }
 .bs-docs-social-buttons .twitter-follow-button {
   width: 225px !important;
@@ -607,7 +701,7 @@ input.focused {
 
   /* Account for fixed navbar (which is static to start) */
   body {
-    padding-top: 50px; /* Default height of navbar */
+    padding-top: $navbarHeight; /* Default height of navbar */
   }
 
   /* Tweak display of docs jumbotrons */
@@ -642,6 +736,17 @@ input.focused {
     top: auto;
     bottom: 270px;
   }
+
+  section > h2, 
+  section > .h2 {
+      // increase margin to improve readability
+      margin-top: 60px;
+  }
+  section > h3, 
+  section > .h3 {
+      // increase margin to improve readability
+      margin-top: 30px;
+  }
 }
 
 /* Tablets/desktops and up */
@@ -663,3 +768,7 @@ input.focused {
     width: 260px;
   }
 }
+
+
+// Utility classes
+@import "utilities"; // Has to be last to override when necessary
