@@ -1,8 +1,8 @@
-# [SASS Bootstrap v3.0.0](http://alademann.github.com/sass-bootstrap/)
+# [Sass Bootstrap v3.0.0](http://alademann.github.com/sass-bootstrap/)
 
-Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat), and ported to SASS/Compass by [Aaron Lademann](https://github.com/alademann).
+Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat), and ported to Sass/Compass by [Aaron Lademann](https://github.com/alademann).
 
-To get started, check out [The SASS Bootstrap Documentation](http://alademann.github.com/sass-bootstrap/)!
+To get started, check out the [SASS Bootstrap Documentation](http://alademann.github.com/sass-bootstrap/)!
 
 
 
@@ -11,7 +11,7 @@ To get started, check out [The SASS Bootstrap Documentation](http://alademann.gi
 Three quick start options are available:
 
 * [Download the latest release](https://github.com/alademann/sass-bootstrap/zipball/master).
-* Clone the repo: `git clone git://github.com/alademann/sass-bootstrap.git`.
+* Clone the repo: `$ git clone git://github.com/alademann/sass-bootstrap.git`.
 
 Read the [Getting Started page](http://alademann.github.com/sass-bootstrap/getting-started/) for information on the framework contents, basic template guidelines, and more.
 
@@ -24,12 +24,12 @@ Have a bug or a feature request? [Please open a new issue](https://github.com/al
 
 ## Documentation
 
-SASS Bootstrap's docs are built using [Jekyll](http://jekyllrb.com) and hosted on [GitHub Pages](http://alademann.github.com/sass-bootstrap/). To view our docs locally, you'll need to [install Jekyll](https://github.com/mojombo/jekyll/wiki/install) to run a local server.
+SASS Bootstrap's docs are built using [Jekyll](http://jekyllrb.com) and hosted on [GitHub Pages](http://pages.github.com/). To view the [Sass Bootstrap Docs](http://alademann.github.com/sass-bootstrap/) locally, you'll need to [install Jekyll](https://github.com/mojombo/jekyll/wiki/install) to run a local server.
 
 
-### Running Jekyll locally alongside SASS / Compass
+### Running Jekyll locally alongside Sass / Compass
 
-We have SASS set up to compile static CSS into the directory that Jekyll "watches" when instructed to automatically regenerate.  If you are wanting to view documentation locally at ```localhost:9001```, we recommend uncommenting the ```auto: --auto``` instruction in ```_config.yml```.  This way, when running ```compass watch```, the updated CSS files injected into the directory Jekyll is watching will force regeneration of your static documentation files.  
+We have [Sass](http://sass-lang.com) set up to compile static CSS into the directory that Jekyll "watches" when instructed to automatically regenerate.  If you are wanting to view documentation locally at ```localhost:9001```, we recommend uncommenting the ```auto: --auto``` instruction in ```_config.yml```.  This way, when running ```$ compass watch```, the updated CSS files injected into the directory Jekyll is watching will force regeneration of your static documentation files.  
 
 You should also comment out the remote url instruction in ```_config.yml``` and uncomment the local ```url: /``` declaration so that the dynamic ```{{ site.url }}``` tags in the Jekyll templates will generate URLs that will work on your rig.
 
@@ -37,7 +37,7 @@ You should also comment out the remote url instruction in ```_config.yml``` and 
 
 ## Compiling CSS
 
-SASS Bootstrap makes use of [Sass](http://sass-lang.com) and [Compass](http://compass-style.org), so you'll need to install both ruby gems to generate static CSS.
+SASS Bootstrap makes use of [Sassy CSS](http://sass-lang.com) and [Compass](http://compass-style.org), so you'll need to install both ruby gems to generate static CSS.
 
 ```
 $ sudo gem install sass
@@ -53,7 +53,7 @@ Once you've installed these gems, simply run terminal from your repo directory, 
 $ compass watch
 ```
 
-This will poll your SCSS source files for changes, and automatically update your static CSS for you.  To make this polling a little more user-friendly on a mac, we recommend installing Compass Growl
+This will poll your Sass (`.scss`) source files for changes, and automatically update your static CSS for you.  To make this polling a little more user-friendly on a mac, we recommend installing [Compass Growl](https://github.com/Compass/compass-growl)
 
 ```
 $ sudo gem install compass-growl
@@ -65,7 +65,6 @@ Then you can be notified via your native OSX growl notifications by adding this 
 $ compass watch -r compass-growl
 ```
 
-When completed, you'll be able to run the various make commands provided:
 
 
 
