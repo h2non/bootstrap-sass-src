@@ -9,7 +9,7 @@
     var $window = $(window)
 
     // Disable certain links in docs
-    $('[href^=#]').click(function (e) {
+    $('section [href^=#], .navbar [href^=#]').click(function (e) {
       e.preventDefault()
     })
 
