@@ -45,7 +45,7 @@ description: Overview of the project, its contents, and how to get started with 
           <div class="span6">
             <h2>Compiled</h2>
             <p><strong>Fastest way to get started:</strong> get the compiled and minified versions of our CSS, JS, and images. No docs or original source files.</p>
-            <p><a class="btn btn-large btn-primary" href="assets/bootstrap.zip" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download compiled']);">Download Bootstrap</a></p>
+            <p><a class="btn btn-large btn-primary" href="{{ site.url }}assets/bootstrap.zip" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download compiled']);">Download Bootstrap</a></p>
           </div>
           <div class="span6">
             <h2>Source</h2>
@@ -120,7 +120,7 @@ description: Overview of the project, its contents, and how to get started with 
         <div class="page-header">
           <h1>4. Basic HTML template</h1>
         </div>
-        <p class="lead">With a brief intro into the contents out of the way, we can focus on putting Bootstrap to use. To do that, we'll utilize a basic HTML template that includes everything we mentioned in the <a href="./getting-started.html#file-structure">File structure</a>.</p>
+        <p class="lead">With a brief intro into the contents out of the way, we can focus on putting Bootstrap to use. To do that, we'll utilize a basic HTML template that includes everything we mentioned in the <a href="{{ site.url }}getting-started.html#file-structure">File structure</a>.</p>
         <p>Now, here's a look at a <strong>typical HTML file</strong>:</p>
 
 {% highlight html linenos %}
@@ -278,8 +278,8 @@ description: Overview of the project, its contents, and how to get started with 
           <h1>What next?</h1>
         </div>
         <p class="lead">Head to the docs for information, examples, and code snippets, or take the next leap and customize Bootstrap for any upcoming project.</p>
-        <a class="btn btn-large btn-primary" href="./css.html" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Next steps', 'Visit docs']);">Visit the Bootstrap docs</a>
         <a class="btn btn-large" href="./customize.html" style="margin-left: 5px;" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Next steps', 'Customize']);">Customize Bootstrap</a>
+        <a class="btn btn-large btn-primary" href="{{ site.url }}css.html" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Next steps', 'Visit docs']);">Visit the Sass Bootstrap docs</a>
       </section>
 
 
