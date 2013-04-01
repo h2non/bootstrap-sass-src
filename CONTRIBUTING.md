@@ -19,19 +19,19 @@ We only accept issues that are bug reports or feature requests. Bugs must be iso
 
 - `master` is the latest, deployed version.
 - `gh-pages` is the hosted docs (not to be used for pull requests).
-- `*-wip` is the official work in progress branch for the next release.
+- `*sass-wip` is the official work in progress branch for the next Sass release.
 
 
 
 ## Notes on the repo
 
-As of v3.0.0, SASS Bootstrap's documentation is powered by Jekyll templates and built dynamically by Github Pages before each release.
+As of v3.0.0, Saas Bootstrap's documentation is powered by Jekyll templates and built dynamically by Github Pages before each release.
 
 
 
 ## Pull requests
 
-- Try to submit pull requests against the latest `*-wip` branch for easier merging
+- Try to submit pull requests against the latest `*sass-wip` branch for easier merging
 - Any changes to the docs must be made to the Mustache templates, not just the compiled HTML pages
 - CSS changes must be done in .scss files first, never just the compiled files
 - Try not to pollute your pull request with unintended changes--keep them simple and small
