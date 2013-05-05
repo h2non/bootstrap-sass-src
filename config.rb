@@ -10,7 +10,23 @@ javascripts_dir = "docs/assets/js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 #output_style = :expanded or :nested or :compact or :compressed
-output_style = :expanded
+  if environment != :production
+    output_style = :expanded
+    line_comments = true
+    disable_warnings = false
+    # give us all the info
+    disable_warnings = true
+    sass_options = {:quiet => true}
+  end
+
+  
+  if environment == :production 
+    output_style = :compressed
+    line_comments = false
+    # keep the build output nice and clean
+    disable_warnings = true
+    sass_options = {:quiet => true}
+  end
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
 # relative_assets = true
