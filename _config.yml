@@ -11,9 +11,9 @@ destination:  ./_gh_pages
 server_port:  9001
 
 # Remote URL (comment out when testing locally)
-url:          http://alademann.github.com/sass-bootstrap/
+url:          http://alademann.github.io/sass-bootstrap/
 
 # Local URL (comment out before sending to server)
 #url:          /
 # automatic regeneration (comment out when sending to server)
-#auto: --auto
+auto: --auto
