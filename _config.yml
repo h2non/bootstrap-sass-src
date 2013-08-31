@@ -8,12 +8,25 @@ permalink:    pretty
 # Server
 source:       ./docs
 destination:  ./_gh_pages
-server_port:  9001
+server_port:  9003
 
-# Remote URL (comment out when testing locally)
-url:          http://alademann.github.io/sass-bootstrap/
+# # Remote URL (comment out when testing locally)
+# url:          http://alademann.github.io/sass-bootstrap/
 
 # Local URL (comment out before sending to server)
-#url:          /
-# automatic regeneration (comment out when sending to server)
-auto: --auto
+url:          /
+
+exclude:      ["twbs", "dist", "sass", "less", "product-config", ".gitignore", "bower.json", "config.rb", "Gemfile", "Gruntfile.js", "package.json", "README.md", "CONTRIBUTING.md", "requirements.txt"]
+
+
+## CUSTOM VARS
+repo:               https://github.com/alademann/sass-bootstrap
+download:           https://github.com/alademann/sass-bootstrap/zipball/master
+
+issues_open:        https://github.com/alademann/sass-bootstrap/issues?state=open
+issues_new:         https://github.com/alademann/sass-bootstrap/issues/new
+
+# Misc Vars
+ga_id:              UA-39735819-1
+app_name:           Sass Bootstrap
+app_version:        3.0.0
