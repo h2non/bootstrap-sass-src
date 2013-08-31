@@ -10,8 +10,8 @@
     <a class="navbar-brand" href="{{ site.url }}"><b>Sass</b> Bootstrap</a>
     <div class="nav-collapse collapse">
       <ul class="nav">
-        <li {% if page.title == "Sass Bootstrap" %}class="active"{% endif %}>
-          <a href="{{ site.url }}" {% if page.title == "Sass Bootstrap" %}rel="nofollow"{% endif %}>Home</a>
+        <li {% if page.title == "{{ site.app_name }}" %}class="active"{% endif %}>
+          <a href="{{ site.url }}" {% if page.title == "{{ site.app_name }}" %}rel="nofollow"{% endif %}>Home</a>
         </li>
         <li {% if page.title == "Getting started" %}class="active"{% endif %}>
           <a href="{{ site.url }}getting-started" {% if page.title == "Getting Started" %}rel="nofollow"{% endif %}>Get started</a>
