@@ -1,12 +1,11 @@
 # Require any additional compass plugins here.
 
-# Set this to the root of your project when deployed:
-http_path = "docs/"
-css_dir = "docs/assets/css"
-sass_dir = "sass"
-fonts_dir = "docs/assets/fonts"
-images_dir = "docs/assets/img"
-javascripts_dir = "docs/assets/js"
+sass_dir           = "sass"
+http_path          = "/"
+css_dir            = "#{http_path}assets/css"
+fonts_dir          = "#{http_path}/fonts"
+images_dir         = "#{http_path}assets/img"
+javascripts_dir    = "#{http_path}/assets/js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 #output_style = :expanded or :nested or :compact or :compressed
@@ -40,3 +39,5 @@ javascripts_dir = "docs/assets/js"
 # preferred_syntax = :sass
 # and then run:
 # sass-convert -R --from scss --to sass lib scss && rm -rf sass && mv scss sass
+
+Sass::Script::Number.precision = 9
