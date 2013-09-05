@@ -1,6 +1,5 @@
-@import "compass";
 /*!
- * Bootstrap v3.0.0
+ * Sass Bootstrap v3.0.0
  *
  * Copyright 2013 Twitter, Inc
  * Licensed under the Apache License v2.0
@@ -10,6 +9,9 @@
  * 
  * Sass -ified by Aaron Lademann @alademann
  */
+
+// Compass utilities
+@import "compass";
 
 // Core variables and mixins
 @import "variables";
@@ -24,7 +26,6 @@
 @import "type";
 @import "code";
 @import "grid";
-
 @import "tables";
 @import "forms";
 @import "buttons";
@@ -33,32 +34,30 @@
 @import "component-animations";
 @import "glyphicons";
 @import "dropdowns";
-@import "wells";
-@import "close";
-
-// Components: Nav
+@import "button-groups";
+@import "input-groups";
 @import "navs";
 @import "navbar";
-@import "button-groups";
 @import "breadcrumbs";
 @import "pagination";
 @import "pager";
+@import "labels";
+@import "badges";
+@import "jumbotron";
+@import "thumbnails";
+@import "progress-bars";
+@import "media";
+@import "list-group";
+@import "panels";
+@import "wells";
+@import "close";
 
-// Components: Popovers
+// Components w/ javascript
+@import "alerts";
 @import "modals";
 @import "tooltip";
 @import "popovers";
-
-// Components: Misc
-@import "alerts";
-@import "thumbnails";
-@import "media";
-@import "labels";
-@import "badges";
-@import "progress-bars";
-@import "accordion";
 @import "carousel";
-@import "jumbotron";
 
 // Utility classes
 @import "utilities"; // Has to be last to override when necessary
