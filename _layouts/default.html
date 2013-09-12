@@ -24,13 +24,16 @@
         <div class="col-md-3">
           <div class="bs-sidebar hidden-print" role="complementary">
             <ul class="nav bs-sidenav">
-              {% if page.slug == "getting-started" %}
+              {% if page.url == "/getting-started/" %}
                 {% include nav-getting-started.html %}
-              {% elsif page.slug == "css" %}
+              {% endif %}
+              {% if page.url == "/css/" %}
                 {% include nav-css.html %}
-              {% elsif page.slug == "components" %}
+              {% endif %}
+              {% if page.url == "/components/" %}
                 {% include nav-components.html %}
-              {% elsif page.slug == "js" %}
+              {% endif %}
+              {% if page.url == "/javascript/" %}
                 {% include nav-javascript.html %}
               {% endif %}
             </ul>
