@@ -15,7 +15,7 @@ module.exports = function(grunt) {
               '*\n' +
               '* Designed and built with all the love in the world by @alademann, @mdo and @fat.\n' +
               '*/\n',
-    jqueryCheck: 'if (!jQuery) { throw new Error(\"Bootstrap requires jQuery\") }\n\n',
+    jqueryCheck: 'if (!jQuery) { throw new Error(\"Sass Bootstrap requires jQuery\") }\n\n',
 
     // Task configuration.
     clean: {
@@ -104,11 +104,6 @@ module.exports = function(grunt) {
         expand: true,
         src: ["fonts/*"],
         dest: 'dist/'
-      },
-      css: {
-        expand: true,
-        src: ["assets/css/bootstrap.css"],
-        dest: 'dist/'
       }
     },
 
@@ -134,7 +129,7 @@ module.exports = function(grunt) {
 
     validation: {
       options: {
-        reset: true
+        reset: false
       },
       files: {
         src: ["_gh_pages/**/*.html"]
@@ -176,20 +171,29 @@ module.exports = function(grunt) {
   grunt.registerTask('validate-html', ['jekyll', 'validation']);
 
   // Test task.
-  var testSubtasks = ['dist-css', 'jshint', 'qunit', 'validate-html'];
-  grunt.registerTask('test', testSubtasks);
+  grunt.registerTask('testSubtasks', ['jshint', 'qunit', 'validate-html']);
+  grunt.registerTask('testSubtasksNoValidation', ['jshint', 'qunit', 'jekyll']);
+  grunt.registerTask('test', 
+    function() {
+      if(grunt.option('validate')) {
+        grunt.task.run('testSubtasks');
+      } else {
+        grunt.task.run('testSubtasksNoValidation');
+      }
+    }
+  );
 
   // JS distribution task.
   grunt.registerTask('dist-js', ['concat', 'uglify']);
 
   // CSS distribution task.
-  grunt.registerTask('dist-css', ['compass:bootstrap', 'copy:css']);
+  grunt.registerTask('dist-css', ['compass:bootstrap']);
 
   // Fonts distribution task.
   grunt.registerTask('dist-fonts', ['copy:fonts']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean', 'dist-css', 'dist-fonts', 'dist-js', 'compress:dist']);
+  grunt.registerTask('dist', ['clean', 'dist-fonts', 'dist-css', 'dist-js', 'compress:dist']);
 
   // Default task.
   grunt.registerTask('default', ['test', 'dist']);

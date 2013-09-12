@@ -9,7 +9,7 @@ permalink:    pretty
 destination:  ./_gh_pages
 port:         9003
 
-exclude:      ["*.zip", "browserstack.json", "node_modules", "twbs", "dist", "sass", "less", ".editorconfig", "composer.json", ".ruby-version", ".gitignore", "bower.json", "config.rb", "Gemfile", "Gruntfile.js", "package.json", "Makefile", "Rakefile", "LICENSE", "README.md", "CONTRIBUTING.md", "requirements.txt"]
+exclude:      ["*.zip", "browserstack.json", "node_modules", "twbs", "temp-css", "sass", "less", ".editorconfig", "composer.json", ".ruby-version", ".gitignore", "bower.json", "config.rb", "Gemfile", "Gruntfile.js", "package.json", "Makefile", "Rakefile", "LICENSE", "README.md", "CONTRIBUTING.md", "requirements.txt"]
 
 
 ## CUSTOM VARS
@@ -23,4 +23,4 @@ issues_new:         https://github.com/alademann/sass-bootstrap/issues/new
 # Misc Vars
 ga_id:              UA-39735819-1
 app_name:           Sass Bootstrap
-current_version:    3.0.0
+current_version:    3.0.1
