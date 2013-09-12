@@ -16,7 +16,7 @@ Three quick start options are available:
 
 * [Download the latest release](https://github.com/alademann/sass-bootstrap/zipball/master).
 * Clone the repo: `$ git clone git://github.com/alademann/sass-bootstrap.git`.
-* Install with [Bower](http://bower.io): `bower install sass-bootstrap`.
+* Install with [Bower](http://bower.io): `bower install alademann-sass-bootstrap`.
 
 Read the [Getting Started page](http://alademann.github.io/sass-bootstrap/getting-started/) for information on the framework contents, basic template guidelines, and more.
 
