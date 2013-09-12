@@ -2,7 +2,7 @@
   <img src="http://alademann.github.io/sass-bootstrap/assets/img/bootstrap-docs-readme.png" width="100px">
 </a>
 
-# Sass Bootstrap v3.0.0
+# Sass Bootstrap v3.0.1
 
 Sass Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat), and ported to Sass/Compass by [Aaron Lademann](https://github.com/alademann).
 
@@ -16,6 +16,7 @@ Three quick start options are available:
 
 * [Download the latest release](https://github.com/alademann/sass-bootstrap/zipball/master).
 * Clone the repo: `$ git clone git://github.com/alademann/sass-bootstrap.git`.
+* Install with [Bower](http://bower.io): `bower install sass-bootstrap`.
 
 Read the [Getting Started page](http://alademann.github.io/sass-bootstrap/getting-started/) for information on the framework contents, basic template guidelines, and more.
 
@@ -33,13 +34,15 @@ SASS Bootstrap's docs are built using [Jekyll](http://jekyllrb.com) and hosted o
 
 ### Running Jekyll locally alongside Sass / Compass
 
-We have [Sass](http://sass-lang.com) set up to compile static CSS into the directory that Jekyll "watches" when instructed to automatically regenerate.  If you are wanting to view documentation locally at ```localhost:9001```, we recommend uncommenting the ```auto: --auto``` instruction in ```_config.yml```.  This way, when running ```$ compass watch```, the updated CSS files injected into the directory Jekyll is watching will force regeneration of your static documentation files.  
+We have [Sass](http://sass-lang.com) set up to compile static CSS into the directory that Jekyll "watches" when instructed to automatically regenerate.  If you are wanting to view documentation locally at ```localhost:9003```, we recommend uncommenting the ```auto: --auto``` instruction in ```_config.yml```.  This way, when running ```$ compass watch```, the updated CSS files injected into the directory Jekyll is watching will force regeneration of your static documentation files.  
 
 You should also comment out the remote url instruction in ```_config.yml``` and uncomment the local ```url: /``` declaration so that the dynamic ```{{ site.url }}``` tags in the Jekyll templates will generate URLs that will work on your rig.
 
 
 
-## Compiling CSS
+## Compiling CSS and JavaScript
+
+### Install SCSS
 
 SASS Bootstrap makes use of [Sassy CSS](http://sass-lang.com) and [Compass](http://compass-style.org), so you'll need to install both ruby gems to generate static CSS.
 
@@ -51,23 +54,36 @@ $ sudo gem install sass
 $ sudo gem install compass
 ```
 
-Once you've installed these gems, simply run terminal from your repo directory, and run
+### Install Grunt
 
-```
-$ compass watch
-```
+Sass Bootstrap uses [Grunt](http://gruntjs.com/) with convenient methods for working with the framework. It's how we compile our code, run tests, and more. To use it, install the required dependencies as directed and then run some Grunt commands.
 
-This will poll your Sass (`.scss`) source files for changes, and automatically update your static CSS for you.  To make this polling a little more user-friendly on a mac, we recommend installing [Compass Growl](https://github.com/Compass/compass-growl)
+From the command line:
 
-```
-$ sudo gem install compass-growl
-```
+1. Install `grunt-cli` globally with `npm install -g grunt-cli`.
+2. Install the [necessary local dependencies](package.json) via `npm install`
 
-Then you can be notified via your native OSX growl notifications by adding this to your watch command
+When completed, you'll be able to run the various Grunt commands provided from the command line.
 
-```
-$ compass watch -r compass-growl
-```
+**Unfamiliar with `npm`? Don't have node installed?** That's a-okay. npm stands for [node packaged modules](http://npmjs.org/) and is a way to manage development dependencies through node.js. [Download and install node.js](http://nodejs.org/download/) before proceeding.
+
+### Available Grunt commands
+
+#### Build - `grunt`
+Run `grunt` to run tests locally and compile the CSS and JavaScript into `/dist`. **Uses [recess](http://twitter.github.io/recess/) and [UglifyJS](http://lisperator.net/uglifyjs/).**
+
+#### Only compile CSS and JavaScript - `grunt dist`
+`grunt dist` creates the `/dist` directory with compiled files. **Uses [recess](http://twitter.github.io/recess/) and [UglifyJS](http://lisperator.net/uglifyjs/).**
+
+#### Tests - `grunt test`
+Runs [JSHint](http://jshint.com) and [QUnit](http://qunitjs.com/) tests headlessly in [PhantomJS](http://phantomjs.org/) (used for CI).
+
+#### Watch - `grunt watch`
+This is a convenience method for watching just Less files and automatically building them whenever you save.
+
+### Troubleshooting dependencies
+
+Should you encounter problems with installing dependencies or running Grunt commands, uninstall all previous dependency versions (global and local). Then, rerun `npm install`.
 
 
 
