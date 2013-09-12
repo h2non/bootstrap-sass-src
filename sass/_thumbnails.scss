@@ -5,12 +5,12 @@
 
 // Mixin and adjust the regular image class
 .thumbnail {
-  .img-thumbnail();
+  @extend .img-thumbnail;
   display: block; // Override the inline-block from `.img-thumbnail`
-  margin-bottom: @line-height-computed;
+  margin-bottom: $line-height-computed;
 
   > img {
-    .img-responsive();
+    @include img-responsive;
   }
 }
 
@@ -18,7 +18,7 @@
 // Add a hover state for linked versions only
 a.thumbnail:hover,
 a.thumbnail:focus {
-  border-color: @link-color;
+  border-color: $link-color;
 }
 
 // Images and captions
@@ -27,6 +27,6 @@ a.thumbnail:focus {
   margin-right: auto;
 }
 .thumbnail .caption {
-  padding: @thumbnail-caption-padding;
-  color: @thumbnail-caption-color;
+  padding: $thumbnail-caption-padding;
+  color: $thumbnail-caption-color;
 }

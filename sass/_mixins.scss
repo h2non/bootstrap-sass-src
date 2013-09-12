@@ -54,8 +54,8 @@
 
 // Placeholder text
 @mixin placeholder($color: $input-color-placeholder) {
-  &:-moz-placeholder            { color: $color-; } // Firefox 4-18
-  &::-moz-placeholder           { color: $color-; } // Firefox 19+
+  &:-moz-placeholder            { color: $color; } // Firefox 4-18
+  &::-moz-placeholder           { color: $color; } // Firefox 19+
   &:-ms-input-placeholder       { color: $color; } // Internet- Explorer 10+
   &::-webkit-input-placeholder  { color: $color; } // Safari and- Chrome
 }
@@ -150,17 +150,17 @@
 // Transformations
 @mixin rotate($degrees) {
   -webkit-transform: rotate($degrees);
-      -ms-transform: rotate($degrees-); // IE9+
+      -ms-transform: rotate($degrees); // IE9+
           transform: rotate($degrees);
 }
 @mixin scale($ratio) {
   -webkit-transform: scale($ratio);
-      -ms-transform: scale($ratio-); // IE9+
+      -ms-transform: scale($ratio); // IE9+
           transform: scale($ratio);
 }
 @mixin translate($x, $y) {
   -webkit-transform: translate($x, $y);
-      -ms-transform: translate($x, $y-); // IE9+
+      -ms-transform: translate($x, $y); // IE9+
           transform: translate($x, $y);
 }
 @mixin skew($x, $y) {
@@ -195,14 +195,14 @@
 @mixin user-select($select) {
   -webkit-user-select: $select;
      -moz-user-select: $select;
-      -ms-user-select: $select-; // IE10+
+      -ms-user-select: $select; // IE10+
        -o-user-select: $select;
           user-select: $select;
 }
 
 // Resize anything
 @mixin resizable($direction) {
-  resize: $direction-; // Options: horizontal, vertical, both
+  resize: $direction; // Options: horizontal, vertical, both
   overflow: auto; // Safari fix
 }
 
@@ -221,7 +221,7 @@
   word-wrap: break-word;
   -webkit-hyphens: $mode;
      -moz-hyphens: $mode;
-      -ms-hyphens: $mode-; // IE10+
+      -ms-hyphens: $mode; // IE10+
        -o-hyphens: $mode;
           hyphens: $mode;
 }
@@ -246,10 +246,10 @@
 @mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
   background-image: -webkit-gradient(linear, $start-percent top, $end-percent top, from($start-color), to($end-color)); // Safari- 4+, Chrome 2+
   background-image: -webkit-linear-gradient(left, color-stop($start-color $start-percent), color-stop($end-color $end-percent)); // Safari- 5.1+, Chrome 10+
-  background-image: -moz-linear-gradient(left, $start-color $start-percent, $end-color $end-percent-); // FF 3.6+
-  background-image:  linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard-, IE10
+  background-image: -moz-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // FF 3.6+
+  background-image:  linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE10
   background-repeat: repeat-x;
-  @include filter-gradient($start-color, $end-color-, 1); // IE9 and down
+  @include filter-gradient($start-color, $end-color, 1); // IE9 and down
 }
 
 // Vertical gradient, from top to bottom
@@ -259,17 +259,17 @@
 @mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
   background-image: -webkit-gradient(linear, left $start-percent, left $end-percent, from($start-color), to($end-color)); // Safari- 4+, Chrome 2+
   background-image: -webkit-linear-gradient(top, $start-color, $start-percent, $end-color, $end-percent); // Safari- 5.1+, Chrome 10+
-  background-image:  -moz-linear-gradient(top, $start-color $start-percent, $end-color $end-percent-); // FF 3.6+
-  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard-, IE10
+  background-image:  -moz-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // FF 3.6+
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10
   background-repeat: repeat-x;
-  @include filter-gradient($start-color, $end-color-, 0); // IE9 and down
+  @include filter-gradient($start-color, $end-color, 0); // IE9 and down
 }
 
 @mixin gradient-directional($start-color: #555, $end-color: #333, $deg: 45deg) {
   background-repeat: repeat-x;
   background-image: -webkit-linear-gradient($deg, $start-color, $end-color); // Safari- 5.1+, Chrome 10+
-  background-image: -moz-linear-gradient($deg, $start-color, $end-color-); // FF 3.6+
-  background-image: linear-gradient($deg, $start-color, $end-color); // Standard-, IE10
+  background-image: -moz-linear-gradient($deg, $start-color, $end-color); // FF 3.6+
+  background-image: linear-gradient($deg, $start-color, $end-color); // Standard, IE10
 }
 @mixin gradient-horizontal-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
   background-image: -webkit-gradient(left, linear, 0 0, 0 100%, from($start-color), color-stop($color-stop, $mid-color), to($end-color));
@@ -277,7 +277,7 @@
   background-image: -moz-linear-gradient(left, $start-color, $mid-color $color-stop, $end-color);
   background-image: linear-gradient(to right, $start-color, $mid-color $color-stop, $end-color);
   background-repeat: no-repeat;
-  @include filter-gradient($start-color, $end-color-, 1); // IE9 and down, gets no color-stop at all for proper fallback
+  @include filter-gradient($start-color, $end-color, 1); // IE9 and down, gets no color-stop at all for proper fallback
 }
 @mixin gradient-vertical-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from($start-color), color-stop($color-stop, $mid-color), to($end-color));
@@ -285,7 +285,7 @@
   background-image: -moz-linear-gradient(top, $start-color, $mid-color $color-stop, $end-color);
   background-image: linear-gradient($start-color, $mid-color $color-stop, $end-color);
   background-repeat: no-repeat;
-  @include filter-gradient($start-color, $end-color-, 0); // IE9 and down, gets no color-stop at all for proper fallback
+  @include filter-gradient($start-color, $end-color, 0); // IE9 and down, gets no color-stop at all for proper fallback
 }
 @mixin gradient-radial($inner-color: #555, $outer-color: #333) {
   background-image: -webkit-gradient(radial, center center, 0, center center, 460, from($inner-color), to($outer-color));
@@ -523,14 +523,18 @@
 // -------------------------
 // More easily include all the states for responsive-utilities.less.
 @mixin responsive-visibility($css-class) {
-  display: block !important;
+  #{$css-class} {
+    display: block !important;
+  }
   tr#{$css-class} { display: table-row !important; }
   th#{$css-class},
   td#{$css-class} { display: table-cell !important; }
 }
 
 @mixin responsive-invisibility($css-class) {
-  display: none !important;
+  #{$css-class} {
+    display: none !important;
+  }
   tr#{$css-class} { display: none !important; }
   th#{$css-class},
   td#{$css-class} { display: none !important; }
@@ -545,14 +549,14 @@
   margin-left: auto;
   padding-left:  ($grid-gutter-width / 2);
   padding-right: ($grid-gutter-width / 2);
-  @include clearfix();
+  @include clearfix;
 }
 
 // Creates a wrapper for a series of columns
 @mixin make-row($gutter: $grid-gutter-width) {
   margin-left:  ($gutter / -2);
   margin-right: ($gutter / -2);
-  @include clearfix();
+  @include clearfix;
 }
 
 // Generate the extra small columns
@@ -725,11 +729,13 @@
 // element gets special love because it's special, and that's a fact!
 
 @mixin input-size($input-height, $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius, $css-class) {
-  height: $input-height;
-  padding: $padding-vertical $padding-horizontal;
-  font-size: $font-size;
-  line-height: $line-height;
-  border-radius: $border-radius;
+  #{$css-class} {
+    height: $input-height;
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius;
+  }
 
   select#{$css-class} {
     height: $input-height;

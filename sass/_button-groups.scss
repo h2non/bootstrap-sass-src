@@ -8,7 +8,7 @@
 
 .caret {
   .btn-default & {
-    border-top-color: @btn-default-color;
+    border-top-color: $btn-default-color;
   }
   .btn-primary &,
   .btn-success &,
@@ -20,7 +20,7 @@
 }
 .dropup {
   & .btn-default .caret {
-    border-bottom-color: @btn-default-color;
+    border-bottom-color: $btn-default-color;
   }
   .btn-primary,
   .btn-success,
@@ -68,7 +68,7 @@
 
 // Optional: Group multiple button groups together for a toolbar
 .btn-toolbar {
-  .clearfix();
+  @include clearfix;
 
   .btn-group {
     float: left;
@@ -91,13 +91,13 @@
 .btn-group > .btn:first-child {
   margin-left: 0;
   &:not(:last-child):not(.dropdown-toggle) {
-    .border-right-radius(0);
+    @include border-right-radius(0);
   }
 }
 // Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
 .btn-group > .btn:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
-  .border-left-radius(0);
+  @include border-left-radius(0);
 }
 
 // Custom edits for including btn-groups within btn-groups (useful for including dropdown buttons within a btn-group)
@@ -110,11 +110,11 @@
 .btn-group > .btn-group:first-child {
   > .btn:last-child,
   > .dropdown-toggle {
-    .border-right-radius(0);
+    @include border-right-radius(0);
   }
 }
 .btn-group > .btn-group:last-child > .btn:first-child {
-  .border-left-radius(0);
+  @include border-left-radius(0);
 }
 
 // On active and open, don't show outline
@@ -128,9 +128,9 @@
 //
 // Remix the default button sizing classes into new ones for easier manipulation.
 
-.btn-group-xs > .btn { .btn-xs(); }
-.btn-group-sm > .btn { .btn-sm(); }
-.btn-group-lg > .btn { .btn-lg(); }
+.btn-group-xs > .btn { @extend .btn-xs; }
+.btn-group-sm > .btn { @extend .btn-sm; }
+.btn-group-lg > .btn { @extend .btn-lg; }
 
 
 // Split button dropdowns
@@ -149,7 +149,7 @@
 // The clickable button for toggling the menu
 // Remove the gradient and set the same inset shadow as the :active state
 .btn-group.open .dropdown-toggle {
-  .box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+  @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
 }
 
 
@@ -159,12 +159,12 @@
 }
 // Carets in other button sizes
 .btn-lg .caret {
-  border-width: @caret-width-large @caret-width-large 0;
+  border-width: $caret-width-large $caret-width-large 0;
   border-bottom-width: 0;
 }
 // Upside down carets for .dropup
 .dropup .btn-lg .caret {
-  border-width: 0 @caret-width-large @caret-width-large;
+  border-width: 0 $caret-width-large $caret-width-large;
 }
 
 
@@ -182,7 +182,7 @@
 
   // Clear floats so dropdown menus can be properly placed
   > .btn-group {
-    .clearfix();
+    @include clearfix;
     > .btn {
       float: none;
     }
@@ -202,12 +202,12 @@
     border-radius: 0;
   }
   &:first-child:not(:last-child) {
-    border-top-right-radius: @border-radius-base;
-    .border-bottom-radius(0);
+    border-top-right-radius: $border-radius-base;
+    @include border-bottom-radius(0);
   }
   &:last-child:not(:first-child) {
-    border-bottom-left-radius: @border-radius-base;
-    .border-top-radius(0);
+    border-bottom-left-radius: $border-radius-base;
+    @include border-top-radius(0);
   }
 }
 .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
@@ -216,11 +216,11 @@
 .btn-group-vertical > .btn-group:first-child {
   > .btn:last-child,
   > .dropdown-toggle {
-    .border-bottom-radius(0);
+    @include border-bottom-radius(0);
   }
 }
 .btn-group-vertical > .btn-group:last-child > .btn:first-child {
-  .border-top-radius(0);
+  @include border-top-radius(0);
 }
 
 

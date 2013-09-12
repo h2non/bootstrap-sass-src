@@ -5,17 +5,17 @@
 
 // Base class
 .panel {
-  margin-bottom: @line-height-computed;
-  background-color: @panel-bg;
+  margin-bottom: $line-height-computed;
+  background-color: $panel-bg;
   border: 1px solid transparent;
-  border-radius: @panel-border-radius;
-  .box-shadow(0 1px 1px rgba(0,0,0,.05));
+  border-radius: $panel-border-radius;
+  @include box-shadow(0 1px 1px rgba(0,0,0,.05));
 }
 
 // Panel contents
 .panel-body {
   padding: 15px;
-  .clearfix();
+  @include clearfix;
 }
 
 
@@ -33,7 +33,7 @@
 
       // Remove border radius for top one
       &:first-child {
-        .border-top-radius(0);
+        @include border-top-radius(0);
       }
       // But keep it for the last one
       &:last-child {
@@ -60,7 +60,7 @@
     margin-bottom: 0;
   }
   > .panel-body + .table {
-    border-top: 1px solid @table-border-color;
+    border-top: 1px solid $table-border-color;
   }
 }
 
@@ -69,14 +69,14 @@
 .panel-heading {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
-  .border-top-radius(@panel-border-radius - 1);
+  @include border-top-radius($panel-border-radius - 1);
 }
 
 // Within heading, strip any `h*` tag of it's default margins for spacing.
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: ceil((@font-size-base * 1.125));
+  font-size: ceil(($font-size-base * 1.125));
   > a {
     color: inherit;
   }
@@ -85,9 +85,9 @@
 // Optional footer (stays gray in every modifier class)
 .panel-footer {
   padding: 10px 15px;
-  background-color: @panel-footer-bg;
-  border-top: 1px solid @panel-inner-border;
-  .border-bottom-radius(@panel-border-radius - 1);
+  background-color: $panel-footer-bg;
+  border-top: 1px solid $panel-inner-border;
+  @include border-bottom-radius($panel-border-radius - 1);
 }
 
 
@@ -100,7 +100,7 @@
   // Tighten up margin so it's only between panels
   .panel {
     margin-bottom: 0;
-    border-radius: @panel-border-radius;
+    border-radius: $panel-border-radius;
     overflow: hidden; // crop contents when collapsed
     + .panel {
       margin-top: 5px;
@@ -110,13 +110,13 @@
   .panel-heading {
     border-bottom: 0;
     + .panel-collapse .panel-body {
-      border-top: 1px solid @panel-inner-border;
+      border-top: 1px solid $panel-inner-border;
     }
   }
   .panel-footer {
     border-top: 0;
     + .panel-collapse .panel-body {
-      border-bottom: 1px solid @panel-inner-border;
+      border-bottom: 1px solid $panel-inner-border;
     }
   }
 
@@ -129,20 +129,20 @@
 
 // Contextual variations
 .panel-default {
-  .panel-variant(@panel-default-border; @panel-default-text; @panel-default-heading-bg; @panel-default-border);
+  @include panel-variant($panel-default-border, $panel-default-text, $panel-default-heading-bg, $panel-default-border);
 }
 .panel-primary {
-  .panel-variant(@panel-primary-border; @panel-primary-text; @panel-primary-heading-bg; @panel-primary-border);
+  @include panel-variant($panel-primary-border, $panel-primary-text, $panel-primary-heading-bg, $panel-primary-border);
 }
 .panel-success {
-  .panel-variant(@panel-success-border; @panel-success-text; @panel-success-heading-bg; @panel-success-border);
+  @include panel-variant($panel-success-border, $panel-success-text, $panel-success-heading-bg, $panel-success-border);
 }
 .panel-warning {
-  .panel-variant(@panel-warning-border; @panel-warning-text; @panel-warning-heading-bg; @panel-warning-border);
+  @include panel-variant($panel-warning-border, $panel-warning-text, $panel-warning-heading-bg, $panel-warning-border);
 }
 .panel-danger {
-  .panel-variant(@panel-danger-border; @panel-danger-text; @panel-danger-heading-bg; @panel-danger-border);
+  @include panel-variant($panel-danger-border, $panel-danger-text, $panel-danger-heading-bg, $panel-danger-border);
 }
 .panel-info {
-  .panel-variant(@panel-info-border; @panel-info-text; @panel-info-heading-bg; @panel-info-border);
+  @include panel-variant($panel-info-border, $panel-info-text, $panel-info-heading-bg, $panel-info-border);
 }
