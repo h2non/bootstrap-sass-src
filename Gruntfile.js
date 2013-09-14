@@ -111,7 +111,7 @@ module.exports = function(grunt) {
           archive: '<%= pkg.name %>-dist.zip'
         },
         files: [
-          {expand:true, cwd: 'dist/', dest: 'dist/', src: ['**']}
+          {expand:true, cwd: 'dist/', dest: 'sass-bootstrap/', src: ['**']}
         ]
       }
     },
