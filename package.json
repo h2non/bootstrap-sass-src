@@ -1,5 +1,5 @@
 {
-    "name": "sass-bootstrap"
+    "name": "sass-bootstrap-compass"
   , "description": "Sleek, intuitive, and powerful front-end framework for faster and easier web development."
   , "version": "3.0.17"
   , "keywords": ["bootstrap", "css", "sass", "scss"]

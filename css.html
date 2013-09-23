@@ -453,7 +453,7 @@ $grid-float-breakpoint:     768px;
 }
 
 // Generate the small columns
-.make-sm-column($columns, $gutter: $grid-gutter-width) {
+@mixin make-sm-column($columns, $gutter: $grid-gutter-width) {
   position: relative;
   // Prevent columns from collapsing when empty
   min-height: 1px;
