@@ -102,44 +102,15 @@ module.exports = function(grunt) {
             '/*!\n' +
             '* <%= pkg.name %> v<%= pkg.version %>\n' +
             '*\n' +
-            '* Copyright 2013 Twitter, Inc\n' +
+            '* Copyright <%= grunt.template.today("yyyy") %> Twitter, Inc\n' +
             '* Licensed under the Apache License v2.0\n' +
             '* http://www.apache.org/licenses/LICENSE-2.0\n' +
-            '*\n' +
-            '* Copyright <%= grunt.template.today("yyyy") %> Contributors\n' +
-            '* Released under the MIT license\n' +
-            '* http://opensource.org/licenses/MIT\n' +
             '*\n' +
             '* Designed and built with all the love in the world by @mdo and @fat.\n' +
             '* Sass -ified by Aaron Lademann @alademann\n' +
             '*/\n'
         }
       }
-      // ,
-      // banner: {
-      //   options : {
-      //     banner : '' +
-      //       '/*!\n' +
-      //       '* <%= pkg.name %> v<%= pkg.version %>\n' +
-      //       '*\n' +
-      //       '* Copyright 2013 Twitter, Inc\n' +
-      //       '* Licensed under the Apache License v2.0\n' +
-      //       '* http://www.apache.org/licenses/LICENSE-2.0\n' +
-      //       '*\n' +
-      //       '* Copyright <%= grunt.template.today("yyyy") %> Contributors\n' +
-      //       '* Released under the MIT license\n' +
-      //       '* http://opensource.org/licenses/MIT\n' +
-      //       '*\n' +
-      //       '* Designed and built with all the love in the world by @mdo and @fat.\n' +
-      //       '* Sass -ified by Aaron Lademann @alademann\n' +
-      //       '*/\n'
-      //   },
-      //   files: {
-      //     '../build/packaged/css/semantic.min.css': [
-      //       '../build/uncompressed/**/*.css'
-      //     ]
-      //   }
-      // }
     },
 
     compass: {
