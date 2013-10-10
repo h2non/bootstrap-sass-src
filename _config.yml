@@ -10,7 +10,7 @@ source:       ./
 destination:  ./_gh_pages
 port:         9001
 
-exclude:      ["*.zip", "browserstack.json", "node_modules", "submodules", "temp-css", "sass", "less", ".editorconfig", "composer.json", ".ruby-version", ".gitignore", "bower.json", "config.rb", "Gemfile", "Gruntfile.js", "package.json", "Makefile", "Rakefile", "LICENSE", "README.md", "CONTRIBUTING.md", "requirements.txt"]
+exclude:      ["*.zip", "browserstack.json", "node_modules", "submodules", "temp-css", "sass", "less", "tests", ".editorconfig", "composer.json", ".ruby-version", ".gitignore", "bower.json", "config.rb", "Gemfile", "Gruntfile.js", "package.json", "Makefile", "Rakefile", "LICENSE", "README.md", "CONTRIBUTING.md", "requirements.txt"]
 
 
 ## CUSTOM VARS

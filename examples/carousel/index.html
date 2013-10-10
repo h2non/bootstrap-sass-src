@@ -1,3 +1,6 @@
+---
+layout: example
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,10 +10,13 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>Carousel Template for {{ site.app_name }}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/sass-bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -18,8 +24,7 @@
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Custom styles for this template -->
-    <link href="carousel.css" rel="stylesheet">
+    {% include ga-js.html %}
   </head>
 <!-- NAVBAR
 ================================================== -->
