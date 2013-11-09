@@ -31,8 +31,9 @@ As of v3.0.0, Saas Bootstrap's documentation is powered by Jekyll templates and 
 
 ## Pull requests
 
-- Try to submit pull requests against the latest `*sass-wip` branch for easier merging
+- CSS changes must be done in `.less` files first, never just the compiled `.css` files
 - If modifying the `.scss` files, always recompile and commit the compiled file `sass-bootstrap.css`
+- Always submit pull requests against the latest `*sass-wip` branch for easier merging
 - Try not to pollute your pull request with unintended changes--keep them simple and small
 - Try to share which browsers your code has been tested in before submitting a pull request
 
