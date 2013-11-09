@@ -1,6 +1,10 @@
 language: node_js
 node_js:
   - 0.8
+
+git:
+  submodules: false
+
 before_script:
   - gem install sass
   - gem install compass
