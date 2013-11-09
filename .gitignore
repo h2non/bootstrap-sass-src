@@ -12,6 +12,7 @@ _gh_pages
 *.vi
 *~
 *.sass-cache
+*.lock
 
 # OS or Editor folders
 .DS_Store
