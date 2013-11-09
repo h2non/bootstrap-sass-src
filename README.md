@@ -1,4 +1,4 @@
-# Sass Bootstrap v3.0.17
+# Sass Bootstrap v3.0.17 [![Build Status](https://travis-ci.org/alademann/sass-bootstrap.png)](https://travis-ci.org/alademann/sass-bootstrap)
 
 Sass Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat), and ported to Sass/Compass by [Aaron Lademann](https://github.com/alademann).
 
