@@ -8,7 +8,7 @@ git:
 before_script:
   - gem install sass
   - gem install compass
-  - gem install nokiri
+  - gem install nokogiri
   - gem install jekyll
   - npm install -g grunt-cli
   - npm install
