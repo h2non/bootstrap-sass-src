@@ -10,11 +10,11 @@ To get started, check out the [SASS Bootstrap Documentation](http://alademann.gi
 
 Three quick start options are available:
 
-* [Download the latest release](https://github.com/alademann/sass-bootstrap/releases/tag/3.0.17).
+* [Download the latest release](https://github.com/alademann/sass-bootstrap/releases/tag/3.0.2).
 * Clone the repo: `$ git clone git://github.com/alademann/sass-bootstrap.git`.
 * Install with [Bower](http://bower.io): `bower install sass-bootstrap-compass`.
 
-Read the [Getting Started page](http://alademann.github.io/sass-bootstrap/getting-started/) for information on the framework contents, templates, examples and more.
+Read the [Getting Started page](http://alademann.github.io/sass-bootstrap/getting-started/) for information on the framework contents, templates and examples, and more.
 
 
 ## Bugs and feature requests
@@ -30,24 +30,25 @@ You may use [this JS Bin](http://jsbin.com/aYazOwU/1/edit) as a template for you
 SASS Bootstrap's docs are built using [Jekyll](http://jekyllrb.com) and hosted on [GitHub Pages](http://pages.github.com/). To view the [Sass Bootstrap Docs](http://alademann.github.io/sass-bootstrap/) locally, you'll need to [install Jekyll](https://github.com/mojombo/jekyll/wiki/install) to run a local server.
 
 
-### Running Jekyll Docs locally alongside Sass / Compass
+### Running documentation locally
 
-1. If necessary, [install Jekyll](http://jekyllrb.com/docs/installation) (requires v1.x).
-2. Install Sass and Compass by running `gem install sass && gem install compass`. (may have to use admin priveledges)
-3. Install Grunt dependencies by running `npm install -g grunt-cli && npm install`. (may have to use admin priveledges)
-4. Run `grunt dev` - and everything will compile, and be watched... complete with Live Reload functionality! (Requires browser extensions)
-5. Open [http://localhost:9001](http://localhost:9001) in your browser, and voila.
+1. From the Sass Bootstrap directory, run our handy setup script: `./setup.sh`
+2. From the root Sass Bootstrap directory, run `jekyll serve` in the command line.
+  - **Windows users:** run `chcp 65001` first to change the command prompt's character encoding ([code page](http://en.wikipedia.org/wiki/Windows_code_page)) to UTF-8 so Jekyll runs without errors.
+3. Open <http://localhost:9001> in your browser, and voila.
 
+Learn more about using Jekyll by reading its [documentation](http://jekyllrb.com/docs/home/).
 
-
-### Install Grunt
+## Compiling CSS and JavaScript
 
 Sass Bootstrap uses [Grunt](http://gruntjs.com/) with convenient methods for working with the framework. It's how we compile our code, run tests, and more. To use it, install the required dependencies as directed and then run some Grunt commands.
+
+### Install Grunt
 
 From the command line:
 
 1. Install `grunt-cli` globally with `npm install -g grunt-cli`.
-2. Install the [necessary local dependencies](package.json) via `npm install`
+2. Navigate to the root Sass Bootstrap directory, then run `npm install`. npm will look at [package.json](package.json) and automatically install the necessary local dependencies listed there.
 
 When completed, you'll be able to run the various Grunt commands provided from the command line.
 
@@ -76,7 +77,31 @@ Should you encounter problems with installing dependencies or running Grunt comm
 
 ## Contributing
 
-Please submit all pull requests against *sass-wip branches. If your pull request contains JavaScript patches or features, you must include relevant unit tests. All HTML and CSS should conform to the [Code Guide](http://github.com/mdo/code-guide), maintained by [Mark Otto](http://github.com/mdo).
+Please read through our [contributing guidelines](https://github.com/alademann/sass-bootstrap/blob/master/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
+
+More over, if your pull request contains JavaScript patches or features, you must include relevant unit tests. All HTML and CSS should conform to the [Code Guide](http://github.com/mdo/code-guide), maintained by [Mark Otto](http://github.com/mdo).
+
+Editor preferences are available in the [editor config](.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
+
+
+
+
+
+## Versioning
+
+For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Sass Bootstrap will be maintained under the Semantic Versioning guidelines as much as possible.
+
+Releases will be numbered with the following format:
+
+`<major>.<minor>.<patch>`
+
+And constructed with the following guidelines:
+
+* Breaking backward compatibility bumps the major (and resets the minor and patch)
+* New additions without breaking backward compatibility bumps the minor (and resets the patch)
+* Bug fixes and misc changes bumps the patch
+
+For more information on SemVer, please visit <http://semver.org/>.
 
 
 
