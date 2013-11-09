@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'sass', '3.2.12'
-gem 'compass', '0.12.2'
+gem 'sass'
+gem 'compass'
 gem 'nokogiri'
-gem 'jekyll', '1.1.2'
+gem 'jekyll'
 gem 'rdiscount'
 gem 'rb-fsevent'
 gem 'rake'
