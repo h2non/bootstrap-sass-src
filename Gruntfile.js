@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       grunt: grunt
   };
 
-  modules.livereload = require('./assets/js/grunts/livereload')(modules);
+  modules.livereload = require('./docs-assets/js/grunts/livereload')(modules);
 
   RegExp.quote = require('regexp-quote')
 
@@ -42,11 +42,11 @@ module.exports = function(grunt) {
         },
         src: ['js/*.js']
       },
-      assets: {
+      docs: {
         options: {
           jshintrc: 'js/.jshintrc'
         },
-        src: ['assets/js/application.js']
+        src: ['docs-assets/js/application.js']
       },
       test: {
         options: {
@@ -198,8 +198,8 @@ module.exports = function(grunt) {
         }
       },
       docsjs: {
-        files: '<%= jshint.assets.src %>',
-        tasks: ['jshint:assets'],
+        files: '<%= jshint.docs.src %>',
+        tasks: ['jshint:docs'],
         options: {
           livereload: true
         }
@@ -220,8 +220,8 @@ module.exports = function(grunt) {
           livereload: false
         }
       },
-      assets: {
-        files: ['assets/**/*'],
+      docshtml: {
+        files: ['docs-assets/**/*'],
         tasks: ['jekyll:docs'],
         options: {
           livereload: true

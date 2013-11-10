@@ -27,6 +27,22 @@
   }
 }
 
+// Center-align a block level element
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin show() {
+  display: block !important;
+}
+
+@mixin hidden() {
+  display: none !important;
+  visibility: hidden !important;
+}
+
 // Webkit-style focus
 @mixin tab-focus() {
   // Default
@@ -72,12 +88,12 @@
 //
 // Heads up! v3 launched with with only `@mixin hide-text()`, but per our pattern for
 // mixins being reused as classes with the same name, this doesn't hold up. As
-// of v3.0.0 we have added `.text-hide()` and deprecated `.hide-text()`. Note
-// that we cannot chain the mixins together in Less, so they are repeated.
+// of v3.0.2 we have added `@mixins text-hide()` and deprecated `@mixin hide-text()`.
+// Note that we cannot chain the mixins together in SCSS, so they are repeated.
 //
 // Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
 
-// Deprecated as of v3.0.0 (will be removed in v4)
+// Deprecated as of v3.0.2 (will be removed in v4)
 @mixin hide-text() {
   font: unquote("0/0") a;
   color: transparent;
@@ -85,7 +101,7 @@
   background-color: transparent;
   border: 0;
 }
-// New mixin to use as of v3.0.0
+// New mixin to use as of v3.0.2
 @mixin text-hide() {
   font: unquote("0/0") a;
   color: transparent;

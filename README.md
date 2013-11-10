@@ -1,6 +1,6 @@
-# Sass Bootstrap v3.0.17 [![Build Status](https://travis-ci.org/alademann/sass-bootstrap.png)](https://travis-ci.org/alademann/sass-bootstrap) [![devDependency Status](https://david-dm.org/alademann/sass-bootstrap/dev-status.png)](https://david-dm.org/alademann/sass-bootstrap#info=devDependencies)
+# Sass Bootstrap v3.0.2 [![Build Status](https://travis-ci.org/alademann/sass-bootstrap.png)](https://travis-ci.org/alademann/sass-bootstrap) [![devDependency Status](https://david-dm.org/alademann/sass-bootstrap/dev-status.png)](https://david-dm.org/alademann/sass-bootstrap#info=devDependencies)
 
-Sass Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat), and ported to Sass/Compass by [Aaron Lademann](https://github.com/alademann).
+**Sass Bootstrap is focused on being a 1:1 translation from Twitter Bootstrap's Less to Sass.** Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat), and ported to Sass by [Aaron Lademann](http://twitter.com/alademann).
 
 To get started, check out the [SASS Bootstrap Documentation](http://alademann.github.io/sass-bootstrap/)!
 
@@ -11,28 +11,51 @@ To get started, check out the [SASS Bootstrap Documentation](http://alademann.gi
 Three quick start options are available:
 
 * [Download the latest release](https://github.com/alademann/sass-bootstrap/releases/tag/3.0.2).
-* Clone the repo: `$ git clone git://github.com/alademann/sass-bootstrap.git`.
-* Install with [Bower](http://bower.io): `bower install sass-bootstrap-compass`.
+* Clone the repo: `git clone git://github.com/alademann/sass-bootstrap.git`.
+* **Install with [Bower](http://bower.io)**: `bower install sass-bootstrap-compass`.
 
 Read the [Getting Started page](http://alademann.github.io/sass-bootstrap/getting-started/) for information on the framework contents, templates and examples, and more.
+
+### What's included
+
+Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
+
+```
+sass-bootstrap/
+├── css/
+│   ├── sass-bootstrap.css
+│   └── sass-bootstrap.min.css
+├── js/
+│   ├── sass-bootstrap.js
+│   └── sass-bootstrap.min.js
+└── fonts/
+    ├── glyphicons-halflings-regular.eot
+    ├── glyphicons-halflings-regular.svg
+    ├── glyphicons-halflings-regular.ttf
+    └── glyphicons-halflings-regular.woff
+```
+
+We provide compiled CSS and JS (`sass-bootstrap.*`), as well as compiled and minified CSS and JS (`sass-bootstrap.min.*`). Fonts from Glyphicons are included.
+
 
 
 ## Bugs and feature requests
 
 Have a bug or a feature request? [Please open a new issue](https://github.com/alademann/sass-bootstrap/issues). Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/necolas/issue-guidelines), written by [Nicolas Gallagher](https://github.com/necolas/).
 
-You may use [this JS Bin](http://jsbin.com/aYazOwU/1/edit) as a template for your bug reports.
+You may use [this JS Bin](http://jsbin.com/EbewaNeN/2/embed?html,css,js,output) as a template for your bug reports.
 
 
 
 ## Documentation
 
-SASS Bootstrap's docs are built using [Jekyll](http://jekyllrb.com) and hosted on [GitHub Pages](http://pages.github.com/). To view the [Sass Bootstrap Docs](http://alademann.github.io/sass-bootstrap/) locally, you'll need to [install Jekyll](https://github.com/mojombo/jekyll/wiki/install) to run a local server.
+SASS Bootstrap's documentation, included in this repo in the root directory, is built with [Jekyll](http://jekyllrb.com) and publicly hosted on GitHub Pages at <http://alademann.github.io/sass-bootstrap/>. The docs may also be run locally.
 
 
 ### Running documentation locally
 
-1. From the Sass Bootstrap directory, run our handy setup script: `./setup.sh`
+1. From the Sass Bootstrap directory, run our handy setup script: `./setup.sh`.
+  - If that doesn't work, try installing the Ruby gems separately by running `gem install bundler && bundle`.
 2. From the root Sass Bootstrap directory, run `jekyll serve` in the command line.
   - **Windows users:** run `chcp 65001` first to change the command prompt's character encoding ([code page](http://en.wikipedia.org/wiki/Windows_code_page)) to UTF-8 so Jekyll runs without errors.
 3. Open <http://localhost:9001> in your browser, and voila.
@@ -57,7 +80,7 @@ When completed, you'll be able to run the various Grunt commands provided from t
 ### Available Grunt commands
 
 #### Build - `grunt`
-Run `grunt` to run js tests locally and compile the CSS and JavaScript into `/dist`.
+Run `grunt` to run tests locally and compile the CSS and JavaScript into `/dist`.
 
 #### Only compile CSS and JavaScript - `grunt dist`
 `grunt dist` creates the `/dist` directory with compiled files.
@@ -74,10 +97,9 @@ Should you encounter problems with installing dependencies or running Grunt comm
 
 
 
-
 ## Contributing
 
-Please read through our [contributing guidelines](https://github.com/alademann/sass-bootstrap/blob/master/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
+Please read through our [contributing guidelines](CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
 
 More over, if your pull request contains JavaScript patches or features, you must include relevant unit tests. All HTML and CSS should conform to the [Code Guide](http://github.com/mdo/code-guide), maintained by [Mark Otto](http://github.com/mdo).
 
