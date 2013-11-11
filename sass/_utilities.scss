@@ -9,6 +9,9 @@
 .clearfix {
   @include clearfix;
 }
+.center-block {
+  @include center-block;
+}
 .pull-right {
   float: right !important;
 }
@@ -20,17 +23,18 @@
 // Toggling content
 // -------------------------
 
+// Note: Deprecated .hide in favor of .hidden or .sr-only (as appropriate) in v3.0.1
 .hide {
   display: none !important;
 }
 .show {
-  @include show();
+  @include show;
 }
 .invisible {
   visibility: hidden;
 }
 .text-hide {
-  @include text-hide();
+  @include text-hide;
 }
 
 
@@ -39,7 +43,7 @@
 // Credit: HTML5 Boilerplate
 
 .hidden {
-  @include hidden();
+  @include hidden;
 }
 
 
