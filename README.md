@@ -12,7 +12,7 @@ $ bower install sass-bootstrap-src --save
 
 Or if you are using [component](https://github.com/component/component)
 ```
-$ component install sass-bootstrap-src --save
+$ component install h2non/sass-bootstrap-src --save
 ```
 
 ## Copyright and license

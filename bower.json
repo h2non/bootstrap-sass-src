@@ -5,6 +5,7 @@
   "main": ["./sass/*", "./fonts/*"],
   "ignore": [
       "**/.*",
-      "*.md"
+      "*.md",
+      "component.json"
   ]
 }
