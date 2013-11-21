@@ -10,7 +10,7 @@ SASS Bootstrap sources to be used from Bower/Component package managers
 $ bower install sass-bootstrap-src --save
 ```
 
-Or if you are using [component](https://github.com)
+Or if you are using [component](https://github.com/component/component)
 ```
 $ component install sass-bootstrap-src --save
 ```
