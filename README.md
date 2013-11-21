@@ -2,7 +2,7 @@
 
 SASS Bootstrap sources to be used from Bower/Component package managers
 
-> This repository just provides the SASS bootstrap sources, if you want to use the distribution release version, please use [sass-bootstrap](https://david-dm.org/alademann/sass-bootstrap) instead
+> This repository just provides the SASS bootstrap sources, if you want to use the distribution release version, please use [sass-bootstrap](https://github.com/alademann/sass-bootstrap) instead
 
 ## Installation
 
