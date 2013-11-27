@@ -21,7 +21,7 @@
   @include user-select(none);
 
   &:focus {
-    @include tab-focus;
+    @include tab-focus();
   }
 
   &:hover,

@@ -19,7 +19,7 @@
   }
 }
 .dropup {
-  & .btn-default .caret {
+  .btn-default .caret {
     border-bottom-color: $btn-default-color;
   }
   .btn-primary,
@@ -68,7 +68,7 @@
 
 // Optional: Group multiple button groups together for a toolbar
 .btn-toolbar {
-  @include clearfix;
+  @include clearfix();
 
   .btn-group {
     float: left;
@@ -187,7 +187,7 @@
 
   // Clear floats so dropdown menus can be properly placed
   > .btn-group {
-    @include clearfix;
+    @include clearfix();
     > .btn {
       float: none;
     }

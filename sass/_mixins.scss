@@ -70,38 +70,31 @@
 
 // CSS image replacement
 //
-// Heads up! v3 launched with with only `@mixin hide-text()`, but per our pattern for
+// Heads up! v3 launched with with only `.hide-text()`, but per our pattern for
 // mixins being reused as classes with the same name, this doesn't hold up. As
-// of v3.0.2 we have added `@mixins text-hide()` and deprecated `@mixin hide-text()`.
-// Note that we cannot chain the mixins together in SCSS, so they are repeated.
+// of v3.0.1 we have added `.text-hide()` and deprecated `.hide-text()`. Note
+// that we cannot chain the mixins together in Less, so they are repeated.
 //
 // Source: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
 
-// Deprecated as of v3.0.2 (will be removed in v4)
+// Deprecated as of v3.0.1 (will be removed in v4)
 @mixin hide-text() {
-  font: unquote("0/0") a;
+  font: #{0/0} a;
   color: transparent;
   text-shadow: none;
   background-color: transparent;
   border: 0;
 }
-// New mixin to use as of v3.0.2
+// New mixin to use as of v3.0.1
 @mixin text-hide() {
-  font: unquote("0/0") a;
+  font: #{0/0} a;
   color: transparent;
   text-shadow: none;
   background-color: transparent;
   border: 0;
 }
 
-@mixin show() {
-  display: block !important;
-}
 
-@mixin hidden() {
-  display: none !important;
-  visibility: hidden !important;
-}
 
 // CSS3 PROPERTIES
 // --------------------------------------------------
@@ -125,13 +118,13 @@
 }
 
 // Drop shadows
-@mixin box-shadow($shadow) {
-  -webkit-box-shadow: $shadow; // i-o-s <4.3 & Android <4.1
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
           box-shadow: $shadow;
 }
 
 // Transitions
-@mixin transition($transition) {
+@mixin transition($transition...) {
   -webkit-transition: $transition;
           transition: $transition;
 }
@@ -147,7 +140,7 @@
   -webkit-transition-duration: $transition-duration;
           transition-duration: $transition-duration;
 }
-@mixin transition-transform($transition) {
+@mixin transition-transform($transition...) {
   -webkit-transition: -webkit-transform $transition;
      -moz-transition: -moz-transform $transition;
        -o-transition: -o-transform $transition;
@@ -172,7 +165,7 @@
 }
 @mixin skew($x, $y) {
   -webkit-transform: skew($x, $y);
-      -ms-transform: skew-x($x) skew-y($y); // See https://github.com/twbs/bootstrap/issues-/4885; IE9+
+      -ms-transform: skewX($x) skewY($y); // See https://github.com/twbs/bootstrap/issues/4885; IE9+
           transform: skew($x, $y);
 }
 @mixin translate3d($x, $y, $z) {
@@ -269,7 +262,7 @@
   opacity: $opacity;
   // IE8 filter
   $opacity-ie: ($opacity * 100);
-  filter: unquote("alpha(opacity=#{$opacity-ie})");
+  filter: #{alpha(opacity=$opacity-ie)};
 }
 
 
@@ -277,17 +270,19 @@
 // GRADIENTS
 // --------------------------------------------------
 
+
+
 // Horizontal gradient, from left to right
 //
 // Creates two color stops, start and end, by specifying a color and position for each color stop.
 // Color stops are not available in IE9 and below.
 @mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
-  background-image: -webkit-gradient(linear, $start-percent top, $end-percent top, from($start-color), to($end-color)); // Safari- 4+, Chrome 2+
-  background-image: -webkit-linear-gradient(left, color-stop($start-color $start-percent), color-stop($end-color $end-percent)); // Safari- 5.1+, Chrome 10+
+  background-image: -webkit-gradient(linear, $start-percent top, $end-percent top, from($start-color), to($end-color)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(left, color-stop($start-color $start-percent), color-stop($end-color $end-percent)); // Safari 5.1+, Chrome 10+
   background-image: -moz-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // FF 3.6+
   background-image:  linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE10
   background-repeat: repeat-x;
-  @include filter-gradient($start-color, $end-color, 1); // IE9 and down
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
 }
 
 // Vertical gradient, from top to bottom
@@ -295,17 +290,17 @@
 // Creates two color stops, start and end, by specifying a color and position for each color stop.
 // Color stops are not available in IE9 and below.
 @mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
-  background-image: -webkit-gradient(linear, left $start-percent, left $end-percent, from($start-color), to($end-color)); // Safari- 4+, Chrome 2+
-  background-image: -webkit-linear-gradient(top, $start-color, $start-percent, $end-color, $end-percent); // Safari- 5.1+, Chrome 10+
+  background-image: -webkit-gradient(linear, left $start-percent, left $end-percent, from($start-color), to($end-color)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // Safari 5.1+, Chrome 10+
   background-image:  -moz-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); // FF 3.6+
   background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10
   background-repeat: repeat-x;
-  @include filter-gradient($start-color, $end-color, 0); // IE9 and down
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
 }
 
 @mixin gradient-directional($start-color: #555, $end-color: #333, $deg: 45deg) {
   background-repeat: repeat-x;
-  background-image: -webkit-linear-gradient($deg, $start-color, $end-color); // Safari- 5.1+, Chrome 10+
+  background-image: -webkit-linear-gradient($deg, $start-color, $end-color); // Safari 5.1+, Chrome 10+
   background-image: -moz-linear-gradient($deg, $start-color, $end-color); // FF 3.6+
   background-image: linear-gradient($deg, $start-color, $end-color); // Standard, IE10
 }
@@ -315,7 +310,7 @@
   background-image: -moz-linear-gradient(left, $start-color, $mid-color $color-stop, $end-color);
   background-image: linear-gradient(to right, $start-color, $mid-color $color-stop, $end-color);
   background-repeat: no-repeat;
-  @include filter-gradient($start-color, $end-color, 1); // IE9 and down, gets no color-stop at all for proper fallback
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down, gets no color-stop at all for proper fallback
 }
 @mixin gradient-vertical-three-colors($start-color: #00b3ee, $mid-color: #7a43b6, $color-stop: 50%, $end-color: #c3325f) {
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from($start-color), color-stop($color-stop, $mid-color), to($end-color));
@@ -323,7 +318,7 @@
   background-image: -moz-linear-gradient(top, $start-color, $mid-color $color-stop, $end-color);
   background-image: linear-gradient($start-color, $mid-color $color-stop, $end-color);
   background-repeat: no-repeat;
-  @include filter-gradient($start-color, $end-color, 0); // IE9 and down, gets no color-stop at all for proper fallback
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down, gets no color-stop at all for proper fallback
 }
 @mixin gradient-radial($inner-color: #555, $outer-color: #333) {
   background-image: -webkit-gradient(radial, center center, 0, center center, 460, from($inner-color), to($outer-color));
@@ -344,7 +339,7 @@
 // When you need to remove a gradient background, do not forget to use this to reset
 // the IE filter for IE9 and below.
 @mixin reset-filter() {
-  filter: unquote("progid:DXImage-transform@mixin Microsoft.gradient(enabled = false)");
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 
 
@@ -354,7 +349,7 @@
 // Short retina mixin for setting background-image and -size
 
 @mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
-  background-image: url("#{$file-1x}");
+  background-image: image-url("#{$file-1x}");
 
   @media
   only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -363,7 +358,7 @@
   only screen and (        min-device-pixel-ratio: 2),
   only screen and (                min-resolution: 192dpi),
   only screen and (                min-resolution: 2dppx) {
-    background-image: url("#{$file-2x}");
+    background-image: image-url("#{$file-2x}");
     background-size: $width-1x $height-1x;
   }
 }
@@ -472,17 +467,23 @@
   &:hover,
   &:focus,
   &:active,
-  &.active,
-  .open &.dropdown-toggle {
+  &.active {
     color: $color;
     background-color: darken($background, 8%);
         border-color: darken($border, 12%);
   }
+  .open & { &.dropdown-toggle {
+    color: $color;
+    background-color: darken($background, 8%);
+        border-color: darken($border, 12%);
+  } }
   &:active,
-  &.active,
-  .open &.dropdown-toggle {
+  &.active {
     background-image: none;
   }
+  .open & { &.dropdown-toggle {
+    background-image: none;
+  } }
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
@@ -492,7 +493,7 @@
     &:active,
     &.active {
       background-color: $background;
-          border-color: $border
+          border-color: $border;
     }
   }
 }
@@ -545,7 +546,7 @@
 // Navbar vertical align
 // -------------------------
 // Vertically center elements in the navbar.
-// Example: an element has a height of 30px, so write out `@mixin navbar-vertical-align(30px);` to calculate the appropriate top margin.
+// Example: an element has a height of 30px, so write out `.navbar-vertical-align(30px);` to calculate the appropriate top margin.
 @mixin navbar-vertical-align($element-height) {
   margin-top: (($navbar-height - $element-height) / 2);
   margin-bottom: (($navbar-height - $element-height) / 2);
@@ -556,30 +557,29 @@
 @mixin progress-bar-variant($color) {
   background-color: $color;
   .progress-striped & {
-    @include gradient-striped($color);
+    @include gradient-striped();
   }
 }
 
 // Responsive utilities
 // -------------------------
 // More easily include all the states for responsive-utilities.less.
+// [converter] $parent hack
 @mixin responsive-visibility($parent) {
-  #{$parent} {
-    display: block !important;
-  }
+  #{$parent} { display: block !important; }
   tr#{$parent} { display: table-row !important; }
   th#{$parent},
   td#{$parent} { display: table-cell !important; }
 }
 
+// [converter] $parent hack
 @mixin responsive-invisibility($parent) {
-  #{$parent} {
-    display: none !important;
-  }
-  tr#{$parent} { display: none !important; }
+    #{$parent},
+  tr#{$parent},
   th#{$parent},
   td#{$parent} { display: none !important; }
 }
+
 
 // Grid System
 // -----------
@@ -590,14 +590,14 @@
   margin-left: auto;
   padding-left:  ($grid-gutter-width / 2);
   padding-right: ($grid-gutter-width / 2);
-  @include clearfix;
+  @include clearfix();
 }
 
 // Creates a wrapper for a series of columns
 @mixin make-row($gutter: $grid-gutter-width) {
   margin-left:  ($gutter / -2);
   margin-right: ($gutter / -2);
-  @include clearfix;
+  @include clearfix();
 }
 
 // Generate the extra small columns
@@ -714,73 +714,18 @@
 
 // Framework grid generation
 //
-// Used only by Sass Bootstrap to generate the correct number of grid classes given
+// Used only by Bootstrap to generate the correct number of grid classes given
 // any value of `$grid-columns`.
 
-// Generate selector arrays
-//
-$cols-all:       comma-list();
-$cols-xs:        comma-list();
-$cols-sm:        comma-list();
-$cols-md:        comma-list();
-$cols-lg:        comma-list();
-
-$cols-xs-push:   comma-list();
-$cols-sm-push:   comma-list();
-$cols-md-push:   comma-list();
-$cols-lg-push:   comma-list();
-
-$cols-xs-pull:   comma-list();
-$cols-sm-pull:   comma-list();
-$cols-md-pull:   comma-list();
-$cols-lg-pull:   comma-list();
-
-$cols-xs-offset: comma-list();
-$cols-sm-offset: comma-list();
-$cols-md-offset: comma-list();
-$cols-lg-offset: comma-list();
-
-// Base column classes span from 1-12
-@for $column from 1 through $grid-columns {
-  $cols-xs: append($cols-xs, unquote(".col-xs-#{$column}"), comma);
-  $cols-sm: append($cols-sm, unquote(".col-sm-#{$column}"), comma);
-  $cols-md: append($cols-md, unquote(".col-md-#{$column}"), comma);
-  $cols-lg: append($cols-lg, unquote(".col-lg-#{$column}"), comma);
-
-  // last one
-  @if $column == $grid-columns {
-    $cols-groups: $cols-xs, $cols-sm, $cols-md, $cols-lg;
-    @each $group in $cols-groups {
-      $cols-all: append($cols-all, $group, comma);
-    }
+// [converter] Grid converted to use SASS cycles (LESS uses recursive nested mixin defs not supported by SASS)
+@mixin make-grid-columns() {
+  $list: '';
+  $i: 1;
+  $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}";
+  @for $i from 2 through $grid-columns {
+    $list: ".col-xs-#{$i}, .col-sm-#{$i}, .col-md-#{$i}, .col-lg-#{$i}, #{$list}";
   }
-}
-
-// Push / pull / offset classes span from 0-12
-@for $column from 0 through $grid-columns {
-  // Push
-  $cols-xs-push:   append($cols-xs-push,    unquote(".col-xs-push-#{$column}"),   comma);
-  $cols-sm-push:   append($cols-sm-push,    unquote(".col-sm-push-#{$column}"),   comma);
-  $cols-md-push:   append($cols-md-push,    unquote(".col-md-push-#{$column}"),   comma);
-  $cols-lg-push:   append($cols-lg-push,    unquote(".col-lg-push-#{$column}"),   comma);
-
-  // Pull
-  $cols-xs-pull:   append($cols-xs-pull,    unquote(".col-xs-pull-#{$column}"),   comma);
-  $cols-sm-pull:   append($cols-sm-pull,    unquote(".col-sm-pull-#{$column}"),   comma);
-  $cols-md-pull:   append($cols-md-pull,    unquote(".col-md-pull-#{$column}"),   comma);
-  $cols-lg-pull:   append($cols-lg-pull,    unquote(".col-lg-pull-#{$column}"),   comma);
-
-  // Offset
-  $cols-xs-offset: append($cols-xs-offset,  unquote(".col-xs-offset-#{$column}"), comma);
-  $cols-sm-offset: append($cols-sm-offset,  unquote(".col-sm-offset-#{$column}"), comma);
-  $cols-md-offset: append($cols-md-offset,  unquote(".col-md-offset-#{$column}"), comma);
-  $cols-lg-offset: append($cols-lg-offset,  unquote(".col-lg-offset-#{$column}"), comma);
-}
-
-@mixin make-grid-columns($cols: $cols-all) {
-  // Common styles for all sizes of grid columns, widths 1-12
-  @debug #{$cols};
-  #{$cols} {
+  #{$list} {
     position: relative;
     // Prevent columns from collapsing when empty
     min-height: 1px;
@@ -790,41 +735,51 @@ $cols-lg-offset: comma-list();
   }
 }
 
+
+// [converter] Grid converted to use SASS cycles (LESS uses recursive nested mixin defs not supported by SASS)
 @mixin make-grid-columns-float($class) {
-  $cols-floats: comma-list();
-  @for $column from 1 through ($grid-columns - 1) {
-    $cols-floats: append($cols-floats, unquote(".col-#{$class}-#{$column}"), comma);
+  $list: '';
+  $i: 1;
+  $list: ".col-#{$class}-#{$i}";
+  @for $i from 2 through $grid-columns {
+    $list: ".col-#{$class}-#{$i}, #{$list}";
   }
-  // 1-11 only (12 doesn't float b/c its full-width)
-  #{$cols-floats} {
+  #{$list} {
     float: left;
   }
 }
 
-@mixin calc-grid($column, $class, $type) {
-  $type-class: if($type == width, "-", "-#{$type}-");
-  .col-#{$class}#{$type-class}#{$column} {
-    @if $type == width {
-            width: if($column == $grid-columns, 100%, percentage(($column / $grid-columns)));
-    } @else if $type == push {
-             left: if($column == 0, auto, percentage(($column / $grid-columns)));
-    } @else if $type == pull {
-            right: if($column == 0, auto, percentage(($column / $grid-columns)));
-    } @else if $type == offset {
-      margin-left: if($column == 0, 0, percentage(($column / $grid-columns)));
-    } @else {
-      @warn "Invalid $type parameter passed to @mixin calc-grid().\nExpected: width, push, pull, offset\nActual: #{$type}";
+
+@mixin calc-grid($index, $class, $type) {
+  @if ($type == width) and ($index > 0) {
+    .col-#{$class}-#{$index} {
+      width: percentage(($index / $grid-columns));
+    }
+  }
+  @if ($type == push) {
+    .col-#{$class}-push-#{$index} {
+      left: percentage(($index / $grid-columns));
+    }
+  }
+  @if ($type == pull) {
+    .col-#{$class}-pull-#{$index} {
+      right: percentage(($index / $grid-columns));
+    }
+  }
+  @if ($type == offset) {
+    .col-#{$class}-offset-#{$index} {
+      margin-left: percentage(($index / $grid-columns));
     }
   }
 }
 
+// [converter] This is defined recursively in LESS, but SASS supports real loops
 @mixin make-grid($columns, $class, $type) {
-  // widths start at .col-#{$class}-1, offsets/push/pull start at 0
-  $start: if($type == width, 1, 0);
-  @for $column from $start through $columns {
-    @include calc-grid($column, $class, $type);
+  @for $i from 0 through $columns {
+    @include calc-grid($i, $class, $type);
   }
 }
+
 
 
 // Form validation states
@@ -839,7 +794,7 @@ $cols-lg-offset: comma-list();
   .radio,
   .checkbox,
   .radio-inline,
-  .checkbox-inline {
+  .checkbox-inline  {
     color: $text-color;
   }
   // Set the border and box shadow on specific inputs to match
@@ -878,7 +833,7 @@ $cols-lg-offset: comma-list();
   &:focus {
     border-color: $color;
     outline: 0;
-    @include box-shadow(unquote("inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #{$color-rgba}"));
+    @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px $color-rgba);
   }
 }
 
@@ -888,21 +843,19 @@ $cols-lg-offset: comma-list();
 // horizontal sizing, wrap controls in the predefined grid classes. `<select>`
 // element gets special love because it's special, and that's a fact!
 
-@mixin input-size($class, $input-height, $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
-  .input-#{$class} {
-    height: $input-height;
-    padding: $padding-vertical $padding-horizontal;
-    font-size: $font-size;
-    line-height: $line-height;
-    border-radius: $border-radius;
-  }
-
-  select.input-#{$class} {
+// [converter] $parent hack
+@mixin input-size($parent, $input-height, $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+  #{$parent} { height: $input-height;
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius; }
+  select#{$parent} {
     height: $input-height;
     line-height: $input-height;
   }
 
-  textarea.input-#{$class} {
+  textarea#{$parent} {
     height: auto;
   }
 }
